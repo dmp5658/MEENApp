@@ -158,8 +158,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "6zlozeuP",
-    "block": "{\"symbols\":[\"&default\"],\"statements\":[[14,1]],\"hasEval\":false}",
+    "id": "2abO9lgb",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .signup-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .signup-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .signup-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"signup-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"retypedpassword\"]],\"form-control\",\"Retype Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"type\",\"submit\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[3,\"action\",[[22,0,[]],\"singupacc\"],[[\"on\"],[\"submit\"]]],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Already have an account? Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/signup-form/template.hbs"
     }
@@ -654,8 +654,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "yUUFggrr",
-    "block": "{\"symbols\":[],\"statements\":[],\"hasEval\":false}",
+    "id": "lVOSWwKu",
+    "block": "{\"symbols\":[],\"statements\":[[1,[21,\"signup-form\"],false]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/signup.hbs"
     }
