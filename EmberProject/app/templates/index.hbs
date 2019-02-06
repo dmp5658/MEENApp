@@ -1,0 +1,7 @@
+{{#create-new-post newPost=model createPost="createPost"}}{{/create-new-post}}
+
+VIEW
+{{#each model as |blogpost|}}
+  {{view-post blogpost=blogpost}}
+{{/each}}
+VIEW
