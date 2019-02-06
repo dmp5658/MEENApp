@@ -191,7 +191,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/login-form/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  4:15  error  you must use double quotes in templates  quotes\n  4:33  error  you must use double quotes in templates  quotes\n  5:34  error  you must use double quotes in templates  quotes\n  6:37  error  you must use double quotes in templates  quotes\n  6:53  error  you must use double quotes in templates  quotes\n');
+    assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  30:21  error  you must use double quotes in templates  quotes\n  30:39  error  you must use double quotes in templates  quotes\n  33:42  error  you must use double quotes in templates  quotes\n  36:66  error  you must use double quotes in templates  quotes\n  36:82  error  you must use double quotes in templates  quotes\n');
   });
   QUnit.test('ember-project/components/nav-bar/template.hbs', function (assert) {
     assert.expect(1);
