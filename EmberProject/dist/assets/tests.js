@@ -48,6 +48,30 @@ define("ember-project/tests/integration/components/login-form/component-test", [
     });
   });
 });
+define("ember-project/tests/integration/components/nav-bar/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | nav-bar', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "1eDpu8Iw",
+        "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "uS8bFgbD",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"nav-bar\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define("ember-project/tests/integration/components/signup-form/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
   "use strict";
 
@@ -116,6 +140,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'components/login-form/component.js should pass ESLint\n\n');
   });
+  QUnit.test('components/nav-bar/component.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/nav-bar/component.js should pass ESLint\n\n');
+  });
   QUnit.test('components/signup-form/component.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/signup-form/component.js should pass ESLint\n\n');
@@ -165,6 +193,10 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
     assert.expect(1);
     assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  4:15  error  you must use double quotes in templates  quotes\n  4:33  error  you must use double quotes in templates  quotes\n  5:34  error  you must use double quotes in templates  quotes\n  6:37  error  you must use double quotes in templates  quotes\n  6:53  error  you must use double quotes in templates  quotes\n');
   });
+  QUnit.test('ember-project/components/nav-bar/template.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/components/nav-bar/template.hbs should pass TemplateLint.\n\n');
+  });
   QUnit.test('ember-project/components/signup-form/template.hbs', function (assert) {
     assert.expect(1);
     assert.ok(true, 'ember-project/components/signup-form/template.hbs should pass TemplateLint.\n\n');
@@ -205,6 +237,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('integration/components/login-form/component-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/login-form/component-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('integration/components/nav-bar/component-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/nav-bar/component-test.js should pass ESLint\n\n');
   });
   QUnit.test('integration/components/signup-form/component-test.js', function (assert) {
     assert.expect(1);

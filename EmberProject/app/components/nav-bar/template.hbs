@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#menu-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{ link-to "Home" "index" class="navbar-brand" }}
+    </div>
+
+    <div class="collapse navbar-collapse float-right" id="menu-collapse">
+      <ul class="nav navbar-nav">
+        <li>{{ link-to "SignUp" "signup" }}</li>
+        <li>{{ link-to "Login" "login" }}</li>
+      </ul>
+    </div>
+  </div>
+</nav>
