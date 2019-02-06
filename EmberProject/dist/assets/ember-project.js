@@ -66,6 +66,77 @@
 
   _exports.default = _default;
 });
+;define("ember-project/components/login-form/component", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Component.extend({
+    actions: {
+      authenticate() {
+        const {
+          login,
+          password
+        } = this.getProperties('login', 'password');
+        alert('Success! ' + login + ' ' + password);
+      }
+
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/components/login-form/template", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "jXJ3bolS",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h2\"],[9],[0,\"Login page\"],[10],[0,\"\\n\"],[7,\"p\"],[9],[0,\"Use login / ok\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[9],[0,\"\\n  \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\"],[[23,[\"login\"]],\"Login\"]]],false],[7,\"br\"],[9],[10],[0,\"\\n  \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"type\"],[[23,[\"password\"]],\"Password\",\"password\"]]],false],[7,\"br\"],[9],[10],[0,\"\\n  \"],[7,\"button\"],[11,\"type\",\"submit\"],[9],[0,\"Login\"],[10],[0,\"\\n\"],[3,\"action\",[[22,0,[]],\"authenticate\"],[[\"on\"],[\"submit\"]]],[10]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/components/login-form/template.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/components/signup-form/component", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Component.extend({});
+
+  _exports.default = _default;
+});
+;define("ember-project/components/signup-form/template", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "6zlozeuP",
+    "block": "{\"symbols\":[\"&default\"],\"statements\":[[14,1]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/components/signup-form/template.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
 ;define("ember-project/components/view-post/component", ["exports"], function (_exports) {
   "use strict";
 
@@ -364,8 +435,22 @@
   });
   Router.map(function () {
     this.route('signup');
+    this.route('login');
+    this.route('createpost');
   });
   var _default = Router;
+  _exports.default = _default;
+});
+;define("ember-project/routes/createpost", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Route.extend({});
+
   _exports.default = _default;
 });
 ;define("ember-project/routes/index", ["exports"], function (_exports) {
@@ -407,15 +492,29 @@
       console.log(blogposts); //var code = this.store.findAll('blogpost');
       //console.log(typeof code);
       //console.log(code);
-      //console.log(this.store.findAll('blogpost'));
 
-      return this.store.findAll('blogpost').then(result => {
-        console.log(result);
-        return result;
-      });
+      return blogposts; //console.log(this.store.findAll('blogpost'));
+
+      /* return this.store.findAll('blogpost').then(result => {
+         console.log(result);
+          return result;
+       });
+       */
     }
 
   });
+
+  _exports.default = _default;
+});
+;define("ember-project/routes/login", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Route.extend({});
 
   _exports.default = _default;
 });
@@ -462,6 +561,24 @@
 
   _exports.default = _default;
 });
+;define("ember-project/templates/createpost", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "LgUmdgaj",
+    "block": "{\"symbols\":[],\"statements\":[[4,\"create-new-post\",null,[[\"newPost\",\"createPost\"],[[23,[\"model\"]],\"createPost\"]],{\"statements\":[],\"parameters\":[]},null],[0,\"\\n\"]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/templates/createpost.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
 ;define("ember-project/templates/index", ["exports"], function (_exports) {
   "use strict";
 
@@ -471,10 +588,28 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "q9hQdiAN",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[4,\"create-new-post\",null,[[\"newPost\",\"createPost\"],[[23,[\"model\"]],\"createPost\"]],{\"statements\":[],\"parameters\":[]},null],[0,\"\\n\\nVIEW\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"  \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"VIEW\"]],\"hasEval\":false}",
+    "id": "OInH/aih",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-default\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"navbar-toggle collapsed\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#menu-collapse\"],[11,\"type\",\"button\"],[9],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"Toggle navigation\"],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],[[\"class\"],[\"navbar-brand\"]],{\"statements\":[[0,\"Home\"]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse\"],[11,\"id\",\"menu-collapse\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav\"],[9],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Login\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"SignUp\"]],\"parameters\":[]},null],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[1,[21,\"outlet\"],false],[0,\"\\n\"],[10],[0,\"\\n\\n\\n\\n\"],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"  Login\\n\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"  SignUp\\n\"]],\"parameters\":[]},null],[0,\"\\n\\n\\nVIEW\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"  \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"VIEW\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/index.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/templates/login", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "FSAMly7T",
+    "block": "{\"symbols\":[],\"statements\":[[1,[21,\"login-form\"],false]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/templates/login.hbs"
     }
   });
 
@@ -489,8 +624,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8Ukf51ME",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"form\"],[9],[0,\"\\n  \"],[7,\"label\"],[11,\"for\",\"loginOrEmail\"],[9],[0,\"Login or Email\"],[10],[0,\"\\n  \"],[1,[27,\"view\",[[23,[\"Ember\",\"TextField\"]]],[[\"valueBinding\",\"placeholder\"],[\"loginOrEmail\",\"Login or Email\"]]],false],[0,\"\\n  \"],[7,\"label\"],[11,\"for\",\"password\"],[9],[0,\"Password\"],[10],[0,\"\\n  \"],[1,[27,\"view\",[[23,[\"Ember\",\"TextField\"]]],[[\"valueBinding\",\"placeholder\"],[\"password\",\"Password\"]]],false],[0,\"\\n  \"],[7,\"button\"],[9],[0,\"Login\"],[3,\"action\",[[22,0,[]],\"createSession\"]],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "yUUFggrr",
+    "block": "{\"symbols\":[],\"statements\":[],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/signup.hbs"
     }
@@ -521,7 +656,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+873d41c4"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+15422a12"});
           }
         
 //# sourceMappingURL=ember-project.map

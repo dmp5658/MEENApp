@@ -40,12 +40,13 @@ export default Route.extend({
     //var code = this.store.findAll('blogpost');
     //console.log(typeof code);
     //console.log(code);
-
+    return blogposts;
     //console.log(this.store.findAll('blogpost'));
-    return this.store.findAll('blogpost').then(result => {
+   /* return this.store.findAll('blogpost').then(result => {
       console.log(result);
 
       return result;
     });
+    */
   }
 });

@@ -24,6 +24,54 @@ define("ember-project/tests/integration/components/create-new-post/component-tes
     });
   });
 });
+define("ember-project/tests/integration/components/login-form/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | login-form', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "My4J7qTe",
+        "block": "{\"symbols\":[],\"statements\":[[1,[21,\"login-form\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "QnYGFQE0",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"login-form\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
+define("ember-project/tests/integration/components/signup-form/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | signup-form', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "1dhndyZo",
+        "block": "{\"symbols\":[],\"statements\":[[1,[21,\"signup-form\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "FfqDPLJj",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"signup-form\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define("ember-project/tests/integration/components/view-post/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
   "use strict";
 
@@ -64,6 +112,14 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'components/create-new-post/component.js should pass ESLint\n\n');
   });
+  QUnit.test('components/login-form/component.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/login-form/component.js should pass ESLint\n\n');
+  });
+  QUnit.test('components/signup-form/component.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/signup-form/component.js should pass ESLint\n\n');
+  });
   QUnit.test('components/view-post/component.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/view-post/component.js should pass ESLint\n\n');
@@ -80,9 +136,17 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'router.js should pass ESLint\n\n');
   });
+  QUnit.test('routes/createpost.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/createpost.js should pass ESLint\n\n');
+  });
   QUnit.test('routes/index.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/index.js should pass ESLint\n\n');
+  });
+  QUnit.test('routes/login.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/login.js should pass ESLint\n\n');
   });
   QUnit.test('routes/signup.js', function (assert) {
     assert.expect(1);
@@ -97,6 +161,14 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
     assert.expect(1);
     assert.ok(true, 'ember-project/components/create-new-post/template.hbs should pass TemplateLint.\n\n');
   });
+  QUnit.test('ember-project/components/login-form/template.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  4:15  error  you must use double quotes in templates  quotes\n  4:33  error  you must use double quotes in templates  quotes\n  5:34  error  you must use double quotes in templates  quotes\n  6:37  error  you must use double quotes in templates  quotes\n  6:53  error  you must use double quotes in templates  quotes\n');
+  });
+  QUnit.test('ember-project/components/signup-form/template.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/components/signup-form/template.hbs should pass TemplateLint.\n\n');
+  });
   QUnit.test('ember-project/components/view-post/template.hbs', function (assert) {
     assert.expect(1);
     assert.ok(true, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\n');
@@ -105,9 +177,17 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
     assert.expect(1);
     assert.ok(true, 'ember-project/templates/application.hbs should pass TemplateLint.\n\n');
   });
+  QUnit.test('ember-project/templates/createpost.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/templates/createpost.hbs should pass TemplateLint.\n\n');
+  });
   QUnit.test('ember-project/templates/index.hbs', function (assert) {
     assert.expect(1);
     assert.ok(true, 'ember-project/templates/index.hbs should pass TemplateLint.\n\n');
+  });
+  QUnit.test('ember-project/templates/login.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/templates/login.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('ember-project/templates/signup.hbs', function (assert) {
     assert.expect(1);
@@ -121,6 +201,14 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('integration/components/create-new-post/component-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/create-new-post/component-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('integration/components/login-form/component-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/login-form/component-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('integration/components/signup-form/component-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/signup-form/component-test.js should pass ESLint\n\n');
   });
   QUnit.test('integration/components/view-post/component-test.js', function (assert) {
     assert.expect(1);
@@ -138,9 +226,17 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'unit/models/blogpost-test.js should pass ESLint\n\n');
   });
+  QUnit.test('unit/routes/createpost-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/createpost-test.js should pass ESLint\n\n');
+  });
   QUnit.test('unit/routes/index-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/index-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('unit/routes/login-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/login-test.js should pass ESLint\n\n');
   });
   QUnit.test('unit/routes/signup-test.js', function (assert) {
     assert.expect(1);
@@ -178,6 +274,17 @@ define("ember-project/tests/unit/models/blogpost-test", ["qunit", "ember-qunit"]
     });
   });
 });
+define("ember-project/tests/unit/routes/createpost-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Route | createpost', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:createpost');
+      assert.ok(route);
+    });
+  });
+});
 define("ember-project/tests/unit/routes/index-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
   "use strict";
 
@@ -185,6 +292,17 @@ define("ember-project/tests/unit/routes/index-test", ["qunit", "ember-qunit"], f
     (0, _emberQunit.setupTest)(hooks);
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:index');
+      assert.ok(route);
+    });
+  });
+});
+define("ember-project/tests/unit/routes/login-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Route | login', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:login');
       assert.ok(route);
     });
   });

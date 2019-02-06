@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 
 require('./app/auth/auth');
 
-
+var pi = 3.14;
 // set our port
 var port = process.env.PORT || 3000;
 
