@@ -40,9 +40,7 @@
 
   var _default = Ember.Component.extend({
     actions: {
-      createPost: function (newPost) {
-        console.log(newPost.title, newPost.text);
-      }
+      createPost: function () {}
     }
   });
 
@@ -57,8 +55,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "P0msp0D7",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[11,\"id\",\"NewPost\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\"],[[23,[\"newPost\",\"title\"]],\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"value\",\"placeholder\",\"rows\",\"cols\"],[[23,[\"newPost\",\"text\"]],\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[9],[0,\"Publish\"],[3,\"action\",[[22,0,[]],\"createPost\",[23,[\"newPost\"]]]],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "khTBFi8E",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[11,\"id\",\"NewPost\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\"],[[23,[\"title\"]],\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"value\",\"placeholder\",\"rows\",\"cols\"],[[23,[\"body\"]],\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Publish\"],[3,\"action\",[[22,0,[]],\"createPost\",[23,[\"newPost\"]]]],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/create-new-post/template.hbs"
     }
@@ -188,8 +186,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "myHIZcg5",
-    "block": "{\"symbols\":[\"&default\"],\"statements\":[[0,\"  \"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"title\"]],false],[0,\" - \"],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[14,1]],\"hasEval\":false}",
+    "id": "ZFtQzsS+",
+    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[1,[23,[\"blogpost\",\"title\"]],false],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/view-post/template.hbs"
     }
@@ -437,7 +435,8 @@
 
   var _default = _emberData.default.Model.extend({
     title: _emberData.default.attr('string'),
-    body: _emberData.default.attr('string')
+    body: _emberData.default.attr('string'),
+    datePosted: _emberData.default.attr('string')
   });
 
   _exports.default = _default;
@@ -618,8 +617,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8qbeETtK",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\n\\n\\n\"],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"  Login\\n\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"  SignUp\\n\"]],\"parameters\":[]},null],[0,\"\\n\\n\\nVIEW\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"  \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"VIEW\\n\"]],\"hasEval\":false}",
+    "id": "FCdJphLH",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\nVIEW\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\nVIEW\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/index.hbs"
     }

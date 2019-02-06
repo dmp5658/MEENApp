@@ -2,12 +2,12 @@
 
 <form id="NewPost">
   <p>
-    {{input value=newPost.title placeholder="Title"}}
+    {{input value=title placeholder="Title"}}
   </p>
   <p>
-    {{textarea value=newPost.text placeholder="Body" rows="10" cols="140"}}
+    {{textarea value=body placeholder="Body" rows="10" cols="140"}}
   </p>
   <p>
-    <button {{action "createPost" newPost}}>Publish</button>
+    <button class="btn btn-primary btn-block" {{action "createPost" newPost}}>Publish</button>
   </p>
 </form>

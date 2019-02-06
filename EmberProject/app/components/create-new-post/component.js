@@ -4,9 +4,8 @@ export default Component.extend({
 
   actions: {
 
-    createPost: function (newPost) {
+    createPost: function () {
 
-      console.log(newPost.title, newPost.text);
 
     }
   }
