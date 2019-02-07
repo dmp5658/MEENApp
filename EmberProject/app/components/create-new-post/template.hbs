@@ -2,10 +2,10 @@
 
 <form id="NewPost">
   <p>
-    {{input value=title placeholder="Title"}}
+    {{input value=title class="form-control" placeholder="Title"}}
   </p>
   <p>
-    {{textarea value=body placeholder="Body" rows="10" cols="140"}}
+    {{textarea value=body class="form-control" placeholder="Body" rows="10" cols="140"}}
   </p>
   <p>
     <button class="btn btn-primary btn-block" {{action "createPost" newPost}}>Publish</button>

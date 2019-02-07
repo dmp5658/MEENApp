@@ -55,8 +55,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "khTBFi8E",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[11,\"id\",\"NewPost\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\"],[[23,[\"title\"]],\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"value\",\"placeholder\",\"rows\",\"cols\"],[[23,[\"body\"]],\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Publish\"],[3,\"action\",[[22,0,[]],\"createPost\",[23,[\"newPost\"]]]],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "1w1NqQbL",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[11,\"id\",\"NewPost\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\"],[[23,[\"title\"]],\"form-control\",\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"value\",\"class\",\"placeholder\",\"rows\",\"cols\"],[[23,[\"body\"]],\"form-control\",\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Publish\"],[3,\"action\",[[22,0,[]],\"createPost\",[23,[\"newPost\"]]]],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/create-new-post/template.hbs"
     }
@@ -126,8 +126,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8LFnaPbC",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-default\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"navbar-toggle collapsed\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#menu-collapse\"],[11,\"type\",\"button\"],[9],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"Toggle navigation\"],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],[[\"class\"],[\"navbar-brand\"]],{\"statements\":[[0,\"Home\"]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse pull-right\"],[11,\"id\",\"menu-collapse\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav\"],[9],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"SignUp\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Login\"]],\"parameters\":[]},null],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "9X+wXKQI",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-default\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"navbar-toggle collapsed\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#menu-collapse\"],[11,\"type\",\"button\"],[9],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"Toggle navigation\"],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],[[\"class\"],[\"navbar-brand\"]],{\"statements\":[[0,\"Home\"]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse pull-right\"],[11,\"id\",\"menu-collapse\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav\"],[9],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"SignUp\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Login\"]],\"parameters\":[]},null],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/nav-bar/template.hbs"
     }
@@ -529,8 +529,13 @@
           return result;
        });
        */
-    }
+    },
 
+    actions: {
+      createPost: function () {
+        this.transitionTo('createpost');
+      }
+    }
   });
 
   _exports.default = _default;
@@ -599,8 +604,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "LgUmdgaj",
-    "block": "{\"symbols\":[],\"statements\":[[4,\"create-new-post\",null,[[\"newPost\",\"createPost\"],[[23,[\"model\"]],\"createPost\"]],{\"statements\":[],\"parameters\":[]},null],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "o84zYI2B",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-sm-12 pull-left\"],[9],[0,\"\\n    \"],[4,\"create-new-post\",null,[[\"newPost\",\"createPost\"],[[23,[\"model\"]],\"createPost\"]],{\"statements\":[],\"parameters\":[]},null],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/createpost.hbs"
     }
@@ -617,8 +622,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "FCdJphLH",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\nVIEW\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\nVIEW\\n\"]],\"hasEval\":false}",
+    "id": "/JogAL7f",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\n\"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\\nVIEW\\n\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\nVIEW\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/index.hbs"
     }
@@ -685,7 +690,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+15422a12"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+3269dbb5"});
           }
         
 //# sourceMappingURL=ember-project.map

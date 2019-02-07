@@ -33,6 +33,8 @@ let blogposts = [
 
 
 export default Route.extend({
+
+
   model() {
 
     console.log("IN ROUTE");
@@ -48,5 +50,12 @@ export default Route.extend({
       return result;
     });
     */
+  },
+
+
+  actions: {
+    createPost: function(){
+      this.transitionTo('createpost');
+    }
   }
 });
