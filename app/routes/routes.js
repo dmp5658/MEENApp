@@ -1,3 +1,4 @@
+'use strict';
 
 const mongoose = require('mongoose');
 const BlogPostSchema = require("../models/model").BlogPostModel;
@@ -5,6 +6,7 @@ const BlogPostSchema = require("../models/model").BlogPostModel;
 const express = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+var BlogPostSerializer = require('../serializers/blogpost');
 
 
 
@@ -29,11 +31,27 @@ router.get('/blogposts',(req, res) => {
             res.send(err);
         }
         console.log(blogpost);
-        res.json(blogpost);
+        //res.json(blogpost);
+        var jsonapi = BlogPostSerializer.serialize(blogpost);
+        res.send(jsonapi);
     })
 });
 
 
+router.post('/createblogpost',  (req, res) => {
+
+    console.log(req.body);
+    let newBlogPost = new BlogPostSchema(req.body);
+
+    newBlogPost.save((err, blogpost) => {
+        if(err){
+
+            res.send(err +" "+blogpost);
+        }
+        console.log(blogpost);
+        res.json(blogpost);
+    });
+});
 
 
 router.post('/login', async (req, res, next) => {

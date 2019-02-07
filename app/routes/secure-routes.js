@@ -15,20 +15,6 @@ router.get('/profile', (req, res, next) => {
     })
 });
 
-router.post('/createblogpost',  (req, res) => {
-
-    console.log(req.body);
-    let newBlogPost = new BlogPostSchema(req.body);
-
-    newBlogPost.save((err, blogpost) => {
-        if(err){
-
-            res.send(err +" "+blogpost);
-        }
-        console.log(blogpost);
-        res.json(blogpost);
-    });
-});
 
 
 module.exports = router;
