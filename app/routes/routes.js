@@ -9,6 +9,7 @@ const express = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 var BlogPostSerializer = require('../serializers/blogpost');
+var UserSerializer = require('../serializers/user');
 
 
 
@@ -31,7 +32,10 @@ router.get('/user',(req, res) => {
             res.send(err);
         }
         console.log(user);
-        res.json(user);
+        //res.json(user);
+        var jsonapi = UserSerializer.serialize(user);
+        res.send(jsonapi);
+
     })
 });
 

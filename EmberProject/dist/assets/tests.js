@@ -146,7 +146,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('components/signup-form/component.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/signup-form/component.js should pass ESLint\n\n');
+    assert.ok(false, 'components/signup-form/component.js should pass ESLint\n\n4:12 - Use import { inject } from \'@ember/service\'; instead of using Ember.inject.service (ember/new-module-imports)\n4:12 - \'Ember\' is not defined. (no-undef)');
   });
   QUnit.test('components/view-post/component.js', function (assert) {
     assert.expect(1);

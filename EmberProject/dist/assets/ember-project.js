@@ -156,6 +156,7 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
+    store: Ember.inject.service('store'),
     actions: {
       singupacc: function () {
         if (this.get('password') === this.get('retypedpassword')) {
@@ -163,6 +164,7 @@
             email: this.get('login'),
             password: this.get('password')
           });
+          console.log('done');
         } else {
           alert("Passwords do not match");
         }

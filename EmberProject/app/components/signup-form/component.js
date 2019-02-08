@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+    store: Ember.inject.service('store'),
+
     actions: {
 
     singupacc: function () {
@@ -10,6 +12,7 @@ export default Component.extend({
             password: this.get('password')
 
           });
+          console.log('done');
         }
         else{
           alert("Passwords do not match");
