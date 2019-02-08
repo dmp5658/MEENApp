@@ -3,7 +3,7 @@ const localStrategy = require('passport-local').Strategy;
 const UserModel = require('../models/model').UserModel;
 
 //Create a passport middleware to handle user registration
-passport.use('signup', new localStrategy({
+passport.use('user', new localStrategy({
     usernameField : 'email',
     passwordField : 'password'
 }, async (email, password, done) => {

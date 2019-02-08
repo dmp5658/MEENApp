@@ -10,7 +10,7 @@
   });
   _exports.default = void 0;
 
-  var _default = _emberData.default.JSONAPIAdapter.extend({});
+  var _default = _emberData.default.RESTAdapter.extend({});
 
   _exports.default = _default;
 });
@@ -39,8 +39,20 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
+    blogpost: null,
+    router: Ember.inject.service('-routing'),
     actions: {
-      createPost: function () {}
+      save: function (blogpost) {
+        console.log(blogpost.title);
+        console.log(blogpost.body);
+        console.log(blogpost);
+        blogpost.save().then(value => {
+          Ember.Logger.info(value);
+        }).catch(err => {
+          Ember.Logger.info('failure to save');
+          console.log(err);
+        });
+      }
     }
   });
 
@@ -55,8 +67,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "1w1NqQbL",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[11,\"id\",\"NewPost\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\"],[[23,[\"title\"]],\"form-control\",\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"value\",\"class\",\"placeholder\",\"rows\",\"cols\"],[[23,[\"body\"]],\"form-control\",\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Publish\"],[3,\"action\",[[22,0,[]],\"createPost\",[23,[\"newPost\"]]]],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "c/utmHwE",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"name\",\"value\",\"class\",\"placeholder\"],[\"title\",[23,[\"blogpost\",\"title\"]],\"form-control\",\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"name\",\"value\",\"class\",\"placeholder\",\"rows\",\"cols\"],[\"body\",[23,[\"blogpost\",\"body\"]],\"form-control\",\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"value\",\"Save\"],[11,\"type\",\"submit\"],[9],[0,\"Publish\"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[3,\"action\",[[22,0,[]],\"save\",[23,[\"blogpost\"]]],[[\"on\"],[\"submit\"]]],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/create-new-post/template.hbs"
     }
@@ -143,7 +155,20 @@
   });
   _exports.default = void 0;
 
-  var _default = Ember.Component.extend({});
+  var _default = Ember.Component.extend({
+    actions: {
+      singupacc: function () {
+        if (this.get('password') === this.get('retypedpassword')) {
+          this.store.createRecord('user', {
+            email: this.get('login'),
+            password: this.get('password')
+          });
+        } else {
+          alert("Passwords do not match");
+        }
+      }
+    }
+  });
 
   _exports.default = _default;
 });
@@ -156,8 +181,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "2abO9lgb",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .signup-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .signup-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .signup-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"signup-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"retypedpassword\"]],\"form-control\",\"Retype Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"type\",\"submit\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[3,\"action\",[[22,0,[]],\"singupacc\"],[[\"on\"],[\"submit\"]]],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Already have an account? Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "lqHPldDJ",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .signup-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .signup-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .signup-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"signup-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"retypedpassword\"]],\"form-control\",\"Retype Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Sign Up\"],[3,\"action\",[[22,0,[]],\"singupacc\"]],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Already have an account? Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/signup-form/template.hbs"
     }
@@ -441,6 +466,18 @@
 
   _exports.default = _default;
 });
+;define("ember-project/models/user", ["exports", "ember-data"], function (_exports, _emberData) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _emberData.default.Model.extend({});
+
+  _exports.default = _default;
+});
 ;define("ember-project/resolver", ["exports", "ember-resolver"], function (_exports, _emberResolver) {
   "use strict";
 
@@ -478,7 +515,12 @@
   });
   _exports.default = void 0;
 
-  var _default = Ember.Route.extend({});
+  var _default = Ember.Route.extend({
+    model() {
+      return this.store.createRecord('blogpost');
+    }
+
+  });
 
   _exports.default = _default;
 });
@@ -517,22 +559,24 @@
 
   var _default = Ember.Route.extend({
     model() {
-      console.log("IN ROUTE");
-      console.log(blogposts); //var code = this.store.findAll('blogpost');
+      // console.log("IN ROUTE");
+      // console.log(blogposts);
+      //var code = this.store.findAll('blogpost');
       //console.log(typeof code);
       //console.log(code);
-
       return blogposts; //console.log(this.store.findAll('blogpost'));
 
-      /* return this.store.findAll('blogpost').then(result => {
-         console.log(result);
-          return result;
-       });
-       */
+      /*
+      return this.store.findAll('blogpost').then(result => {
+        console.log(result);
+         return result;
+      });
+      */
     },
 
     actions: {
       createPost: function () {
+        console.log('we here');
         this.transitionTo('createpost');
       }
     }
@@ -604,8 +648,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "o84zYI2B",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-sm-12 pull-left\"],[9],[0,\"\\n    \"],[4,\"create-new-post\",null,[[\"newPost\",\"createPost\"],[[23,[\"model\"]],\"createPost\"]],{\"statements\":[],\"parameters\":[]},null],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "HjvJKynA",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-sm-12 pull-left\"],[9],[0,\"\\n    \"],[1,[27,\"create-new-post\",null,[[\"blogpost\"],[[23,[\"model\"]]]]],false],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/createpost.hbs"
     }
@@ -658,8 +702,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "lVOSWwKu",
-    "block": "{\"symbols\":[],\"statements\":[[1,[21,\"signup-form\"],false]],\"hasEval\":false}",
+    "id": "/2nEHWh0",
+    "block": "{\"symbols\":[],\"statements\":[[1,[27,\"signup-form\",null,[[\"store\"],[[23,[\"store\"]]]]],false]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/signup.hbs"
     }
@@ -690,7 +734,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+6639b26a"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+7567ce7b"});
           }
         
 //# sourceMappingURL=ember-project.map

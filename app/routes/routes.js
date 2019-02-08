@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 const BlogPostSchema = require("../models/model").BlogPostModel;
+const UserSchema = require("../models/model").UserModel;
+
 
 const express = require('express');
 const passport = require('passport');
@@ -15,14 +17,23 @@ const router = express.Router();
 
 //When the user sends a post request to this route, passport authenticates the user based on the
 //middleware created previously
-router.post('/signup', passport.authenticate('signup', { session : false }) , async (req, res, next) => {
+router.post('/user', passport.authenticate('user', { session : false }) , async (req, res, next) => {
 
     res.json({
         message : 'Signup successful',
         user : req.user
     });
 });
-
+router.get('/user',(req, res) => {
+    console.log("API GET REQUEST");
+    UserSchema.find({}, (err,user) => {
+        if(err) {
+            res.send(err);
+        }
+        console.log(user);
+        res.json(user);
+    })
+});
 
 router.get('/blogposts',(req, res) => {
     console.log("API GET REQUEST");
@@ -38,15 +49,18 @@ router.get('/blogposts',(req, res) => {
 });
 
 
-router.post('/createblogpost',  (req, res) => {
-
+router.post('/blogposts',  (req, res) => {
+    console.log('In router');
     console.log(req.body);
     let newBlogPost = new BlogPostSchema(req.body);
 
     newBlogPost.save((err, blogpost) => {
         if(err){
+            console.log('STRINGIFY');
+            console.log(JSON.stringify(err));
 
-            res.send(err +" "+blogpost);
+            res.send(JSON.stringify(err));
+            //res.json(err);
         }
         console.log(blogpost);
         res.json(blogpost);

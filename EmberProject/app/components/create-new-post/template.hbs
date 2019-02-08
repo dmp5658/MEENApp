@@ -1,13 +1,13 @@
 <h3>Create a New Post</h3>
 
-<form id="NewPost">
+<form  {{action "save" blogpost on="submit"}}>
   <p>
-    {{input value=title class="form-control" placeholder="Title"}}
+    {{input name="title" value=blogpost.title class="form-control" placeholder="Title"}}
   </p>
   <p>
-    {{textarea value=body class="form-control" placeholder="Body" rows="10" cols="140"}}
+    {{textarea name="body" value=blogpost.body class="form-control" placeholder="Body" rows="10" cols="140"}}
   </p>
   <p>
-    <button class="btn btn-primary btn-block" {{action "createPost" newPost}}>Publish</button>
+    <button class="btn btn-primary btn-block" type="submit" value="Save">Publish</button>
   </p>
 </form>

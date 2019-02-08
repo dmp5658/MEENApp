@@ -156,6 +156,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'models/blogpost.js should pass ESLint\n\n');
   });
+  QUnit.test('models/user.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/user.js should pass ESLint\n\n');
+  });
   QUnit.test('resolver.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'resolver.js should pass ESLint\n\n');
@@ -199,7 +203,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/signup-form/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/signup-form/template.hbs should pass TemplateLint.\n\nember-project/components/signup-form/template.hbs\n  30:21  error  you must use double quotes in templates  quotes\n  30:36  error  you must use double quotes in templates  quotes\n  33:42  error  you must use double quotes in templates  quotes\n  36:66  error  you must use double quotes in templates  quotes\n  36:82  error  you must use double quotes in templates  quotes\n  39:73  error  you must use double quotes in templates  quotes\n  39:96  error  you must use double quotes in templates  quotes\n');
+    assert.ok(false, 'ember-project/components/signup-form/template.hbs should pass TemplateLint.\n\nember-project/components/signup-form/template.hbs\n  33:42  error  you must use double quotes in templates  quotes\n  36:66  error  you must use double quotes in templates  quotes\n  36:82  error  you must use double quotes in templates  quotes\n  39:73  error  you must use double quotes in templates  quotes\n  39:96  error  you must use double quotes in templates  quotes\n  42:61  error  you must use double quotes in templates  quotes\n');
   });
   QUnit.test('ember-project/components/view-post/template.hbs', function (assert) {
     assert.expect(1);
@@ -262,6 +266,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'unit/models/blogpost-test.js should pass ESLint\n\n');
   });
+  QUnit.test('unit/models/user-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/user-test.js should pass ESLint\n\n');
+  });
   QUnit.test('unit/routes/createpost-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/createpost-test.js should pass ESLint\n\n');
@@ -306,6 +314,19 @@ define("ember-project/tests/unit/models/blogpost-test", ["qunit", "ember-qunit"]
     (0, _qunit.test)('it exists', function (assert) {
       let store = this.owner.lookup('service:store');
       let model = store.createRecord('blogpost', {});
+      assert.ok(model);
+    });
+  });
+});
+define("ember-project/tests/unit/models/user-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Model | user', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = store.createRecord('user', {});
       assert.ok(model);
     });
   });
