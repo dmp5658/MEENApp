@@ -2,18 +2,6 @@
 
 
 
-;define("ember-project/adapters/application", ["exports", "ember-data"], function (_exports, _emberData) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  var _default = _emberData.default.RESTAdapter.extend({});
-
-  _exports.default = _default;
-});
 ;define("ember-project/app", ["exports", "ember-project/resolver", "ember-load-initializers", "ember-project/config/environment"], function (_exports, _resolver, _emberLoadInitializers, _environment) {
   "use strict";
 
@@ -28,6 +16,106 @@
   });
   (0, _emberLoadInitializers.default)(App, _environment.default.modulePrefix);
   var _default = App;
+  _exports.default = _default;
+});
+;define("ember-project/authenticators/knockjwt", ["exports", "ember-simple-auth/authenticators/base", "ember-project/config/environment"], function (_exports, _base, _environment) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  const {
+    RSVP: {
+      Promise
+    },
+    $: {
+      ajax
+    },
+    run,
+    get
+  } = Ember;
+
+  var _default = _base.default.extend({
+    tokenEndpoint: `http://localhost:3000/login`,
+
+    restore(data) {
+      return new Promise((resolve, reject) => {
+        if (!Ember.isEmpty(data.token)) {
+          resolve(data);
+        } else {
+          reject();
+        }
+      });
+    },
+
+    authenticate(creds) {
+      const {
+        email,
+        password
+      } = creds;
+      const data = JSON.stringify({
+        email,
+        password
+      });
+      console.log("AFTER STRINGIFY");
+      console.log(data);
+      const requestOptions = {
+        url: this.tokenEndpoint,
+        type: 'POST',
+        data: {
+          "email": email,
+          "password": password
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        dataType: 'json'
+      };
+      console.log(requestOptions);
+      return new Promise((resolve, reject) => {
+        ajax(requestOptions).then(response => {
+          const {
+            jwt
+          } = response; // Wrapping aync operation in Ember.run
+
+          run(() => {
+            resolve({
+              token: jwt
+            });
+          });
+        }, error => {
+          // Wrapping aync operation in Ember.run
+          run(() => {
+            reject(error);
+          });
+        });
+      });
+    },
+
+    invalidate(data) {
+      return Promise.resolve(data);
+    }
+
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/authorizers/knockjwt", ["exports", "ember-simple-auth/authorizers/base"], function (_exports, _base) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _base.default.extend({
+    authorize()
+    /*data, block*/
+    {
+      debugger;
+    }
+
+  });
+
   _exports.default = _default;
 });
 ;define("ember-project/components/create-new-post/component", ["exports"], function (_exports) {
@@ -85,13 +173,30 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
+    session: Ember.inject.service(),
     actions: {
-      authenticate() {
+      login() {
+        console.log('login');
+        this.set('loginError', false);
+        this.set('loginError', false);
         const {
-          login,
+          email,
           password
-        } = this.getProperties('login', 'password');
-        alert('Success! ' + login + ' ' + password);
+        } = this.getProperties('email', 'password');
+        const s = this.get('session');
+        s.authenticate('authenticator:knockjwt', {
+          email,
+          password
+        }).catch(() => {
+          // If login fails, just set an error
+          // so the error UI shows up
+          this.set('loginError', true);
+        });
+      },
+
+      signout() {
+        console.log('signout');
+        this.get('session').invalidate();
       }
 
     }
@@ -108,8 +213,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "wkiE4Qjx",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .login-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .login-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .login-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"login-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Log in\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"type\",\"submit\"],[9],[0,\"Log in\"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[3,\"action\",[[22,0,[]],\"authenticate\"],[[\"on\"],[\"submit\"]]],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"Create an Account\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "ANsvzoow",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .login-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .login-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .login-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n\"],[4,\"unless\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"login-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Log in\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"email\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"type\",\"submit\"],[9],[0,\"Log in\"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[3,\"action\",[[22,0,[]],\"login\"],[[\"on\"],[\"submit\"]]],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"Create an Account\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n\"]],\"parameters\":[]},{\"statements\":[[0,\"  \"],[7,\"a\"],[11,\"href\",\"/logout\"],[11,\"class\",\"logoutBtn\"],[9],[0,\"\\n    logout\\n  \"],[3,\"action\",[[22,0,[]],\"signout\"]],[10],[0,\"\\n\"]],\"parameters\":[]}],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/login-form/template.hbs"
     }
@@ -385,6 +490,30 @@
   };
   _exports.default = _default;
 });
+;define("ember-project/initializers/ember-simple-auth", ["exports", "ember-project/config/environment", "ember-simple-auth/configuration", "ember-simple-auth/initializers/setup-session", "ember-simple-auth/initializers/setup-session-service", "ember-simple-auth/initializers/setup-session-restoration"], function (_exports, _environment, _configuration, _setupSession, _setupSessionService, _setupSessionRestoration) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  var _default = {
+    name: 'ember-simple-auth',
+
+    initialize(registry) {
+      const config = _environment.default['ember-simple-auth'] || {};
+      config.rootURL = _environment.default.rootURL || _environment.default.baseURL;
+
+      _configuration.default.load(config);
+
+      (0, _setupSession.default)(registry);
+      (0, _setupSessionService.default)(registry);
+      (0, _setupSessionRestoration.default)(registry);
+    }
+
+  };
+  _exports.default = _default;
+});
 ;define("ember-project/initializers/export-application-global", ["exports", "ember-project/config/environment"], function (_exports, _environment) {
   "use strict";
 
@@ -452,6 +581,24 @@
   };
   _exports.default = _default;
 });
+;define("ember-project/instance-initializers/ember-simple-auth", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  // This is only needed for backwards compatibility and will be removed in the
+  // next major release of ember-simple-auth. Unfortunately, there is no way to
+  // deprecate this without hooking into Ember's internals…
+  var _default = {
+    name: 'ember-simple-auth',
+
+    initialize() {}
+
+  };
+  _exports.default = _default;
+});
 ;define("ember-project/models/blogpost", ["exports", "ember-data"], function (_exports, _emberData) {
   "use strict";
 
@@ -507,6 +654,22 @@
     this.route('createpost');
   });
   var _default = Router;
+  _exports.default = _default;
+});
+;define("ember-project/routes/application", ["exports", "ember-simple-auth/mixins/application-route-mixin"], function (_exports, _applicationRouteMixin) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Route.extend(_applicationRouteMixin.default, {
+    model() {// return this.store.findAll('blogpost');
+    }
+
+  });
+
   _exports.default = _default;
 });
 ;define("ember-project/routes/createpost", ["exports"], function (_exports) {
@@ -623,6 +786,38 @@
     }
   });
 });
+;define("ember-project/services/cookies", ["exports", "ember-cookies/services/cookies"], function (_exports, _cookies) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  var _default = _cookies.default;
+  _exports.default = _default;
+});
+;define("ember-project/services/session", ["exports", "ember-simple-auth/services/session"], function (_exports, _session) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  var _default = _session.default;
+  _exports.default = _default;
+});
+;define("ember-project/session-stores/application", ["exports", "ember-simple-auth/session-stores/adaptive"], function (_exports, _adaptive) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _adaptive.default.extend();
+
+  _exports.default = _default;
+});
 ;define("ember-project/templates/application", ["exports"], function (_exports) {
   "use strict";
 
@@ -736,7 +931,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+7567ce7b"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+e34b109a"});
           }
         
 //# sourceMappingURL=ember-project.map

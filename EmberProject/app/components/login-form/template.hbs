@@ -26,11 +26,13 @@
     </style>
   </head>
   <body>
+  {{#unless session.isAuthenticated}}
+
     <div class="login-form">
-      <form {{action 'authenticate' on='submit'}}>
+      <form {{action 'login' on='submit'}}>
         <h2 class="text-center">Log in</h2>
         <div class="form-group">
-          {{input value=login placeholder='Login' class="form-control" required="required"}}
+          {{input value=email placeholder='Login' class="form-control" required="required"}}
         </div>
         <div class="form-group">
           {{input value=password class="form-control" placeholder='Password' type='password' required="required"}}
@@ -41,5 +43,13 @@
       </form>
       <p class="text-center">{{ link-to "Create an Account" "signup"  }}</p>
     </div>
+    {{else}}
+  <a href="/logout"
+     class="logoutBtn"
+     {{action "signout"}}>
+    logout
+  </a>
+{{/unless}}
+
   </body>
 </html>
