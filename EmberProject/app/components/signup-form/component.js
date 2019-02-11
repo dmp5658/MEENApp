@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-    store: Ember.inject.service('store'),
 
     actions: {
 
@@ -11,7 +10,7 @@ export default Component.extend({
             email: this.get('login'),
             password: this.get('password')
 
-          });
+          }).save();
           console.log('done');
         }
         else{

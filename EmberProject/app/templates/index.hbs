@@ -6,7 +6,8 @@ VIEW
 
 <div class="container">
   <div class="col-md-12">
-    <button {{action "createPost"}} type="button" class="btn btn-primary">Create Post</button>
+      <button {{action "createPost"}} type="button" class="btn btn-primary">Create Post</button>
+
     <br><br>
     {{#each model as |blogpost|}}
       {{view-post blogpost=blogpost}}

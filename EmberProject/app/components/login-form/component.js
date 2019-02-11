@@ -1,11 +1,11 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 export default Component.extend({
-  session: Ember.inject.service(),
+  session: service(),
   actions: {
     login() {
       console.log('login');
       this.set('loginError', false);
-          this.set('loginError', false);
 
     const { email, password } = this.getProperties( 'email', 'password');
     const s = this.get('session');
@@ -15,6 +15,8 @@ export default Component.extend({
         // so the error UI shows up
         this.set('loginError', true);
     });
+    console.log("IN LOGIN SESS");
+    console.log(s.isAuthenticated);
 
     },
     signout(){

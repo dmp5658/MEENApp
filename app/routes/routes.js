@@ -18,14 +18,14 @@ const router = express.Router();
 
 //When the user sends a post request to this route, passport authenticates the user based on the
 //middleware created previously
-router.post('/user', passport.authenticate('user', { session : false }) , async (req, res, next) => {
-
+router.post('/users', passport.authenticate('user', { session : false }) , async (req, res, next) => {
+    console.log(req.body);
     res.json({
         message : 'Signup successful',
         user : req.user
     });
 });
-router.get('/user',(req, res) => {
+router.get('/users',(req, res) => {
     console.log("API GET REQUEST");
     UserSchema.find({}, (err,user) => {
         if(err) {

@@ -14,7 +14,6 @@ mongoose.Promise = global.Promise;
 
 require('./app/auth/auth');
 
-var pi = 3.14;
 // set our port
 var port = process.env.PORT || 3000;
 
@@ -22,6 +21,9 @@ app.use(cors());
 // set the static files location
 app.use(express.static(__dirname + '/public'));
 app.use( bodyParser.urlencoded({ extended : false }) );
+app.use( bodyParser.json() );
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
 
 //require('./app/routes')(app); // configure our routes
 const routes = require('./app/routes/routes');

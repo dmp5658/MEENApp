@@ -167,13 +167,17 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   "use strict";
 
   QUnit.module('ESLint | app');
+  QUnit.test('adapters/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/application.js should pass ESLint\n\n');
+  });
   QUnit.test('app.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass ESLint\n\n');
   });
   QUnit.test('authenticators/knockjwt.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'authenticators/knockjwt.js should pass ESLint\n\n3:8 - \'config\' is defined but never used. (no-unused-vars)\n5:17 - Use import { Promise } from \'rsvp\'; instead of using Ember destructuring (ember/new-module-imports)\n5:41 - Use import { run } from \'@ember/runloop\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - Use import { get } from \'@ember/object\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - \'get\' is assigned a value but never used. (no-unused-vars)\n13:12 - Use import { isEmpty } from \'@ember/utils\'; instead of using Ember.isEmpty (ember/new-module-imports)');
+    assert.ok(false, 'authenticators/knockjwt.js should pass ESLint\n\n3:8 - \'config\' is defined but never used. (no-unused-vars)\n5:17 - Use import { Promise } from \'rsvp\'; instead of using Ember destructuring (ember/new-module-imports)\n5:41 - Use import { run } from \'@ember/runloop\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - Use import { get } from \'@ember/object\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - \'get\' is assigned a value but never used. (no-unused-vars)\n13:12 - Use import { isEmpty } from \'@ember/utils\'; instead of using Ember.isEmpty (ember/new-module-imports)\n25:17 - \'data\' is not defined. (no-undef)');
   });
   QUnit.test('authorizers/knockjwt.js', function (assert) {
     assert.expect(1);
@@ -185,7 +189,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('components/login-form/component.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/login-form/component.js should pass ESLint\n\n3:12 - Use import { inject } from \'@ember/service\'; instead of using Ember.inject.service (ember/new-module-imports)\n3:12 - \'Ember\' is not defined. (no-undef)');
+    assert.ok(true, 'components/login-form/component.js should pass ESLint\n\n');
   });
   QUnit.test('components/nav-bar/component.js', function (assert) {
     assert.expect(1);
@@ -193,7 +197,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('components/signup-form/component.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/signup-form/component.js should pass ESLint\n\n4:12 - Use import { inject } from \'@ember/service\'; instead of using Ember.inject.service (ember/new-module-imports)\n4:12 - \'Ember\' is not defined. (no-undef)');
+    assert.ok(true, 'components/signup-form/component.js should pass ESLint\n\n');
   });
   QUnit.test('components/view-post/component.js', function (assert) {
     assert.expect(1);
@@ -235,6 +239,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'routes/signup.js should pass ESLint\n\n');
   });
+  QUnit.test('serializers/blogpost.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/blogpost.js should pass ESLint\n\n4:23 - \'options\' is defined but never used. (no-unused-vars)');
+  });
 });
 define("ember-project/tests/lint/templates.template.lint-test", [], function () {
   "use strict";
@@ -270,7 +278,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/templates/index.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'ember-project/templates/index.hbs should pass TemplateLint.\n\n');
+    assert.ok(false, 'ember-project/templates/index.hbs should pass TemplateLint.\n\nember-project/templates/index.hbs\n  9:6  error  Incorrect indentation for `<button>` beginning at L9:C6. Expected `<button>` to be at an indentation of 4 but was found at 6.  block-indentation\n');
   });
   QUnit.test('ember-project/templates/login.hbs', function (assert) {
     assert.expect(1);
@@ -309,6 +317,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
+  QUnit.test('unit/adapters/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/application-test.js should pass ESLint\n\n');
+  });
   QUnit.test('unit/models/blogpost-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/blogpost-test.js should pass ESLint\n\n');
@@ -333,12 +345,28 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'unit/routes/signup-test.js should pass ESLint\n\n');
   });
+  QUnit.test('unit/serializers/blogpost-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/blogpost-test.js should pass ESLint\n\n');
+  });
 });
 define("ember-project/tests/test-helper", ["ember-project/app", "ember-project/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
   "use strict";
 
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _emberQunit.start)();
+});
+define("ember-project/tests/unit/adapters/application-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Adapter | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let adapter = this.owner.lookup('adapter:application');
+      assert.ok(adapter);
+    });
+  });
 });
 define("ember-project/tests/unit/models/blogpost-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
   "use strict";
@@ -407,6 +435,25 @@ define("ember-project/tests/unit/routes/signup-test", ["qunit", "ember-qunit"], 
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:signup');
       assert.ok(route);
+    });
+  });
+});
+define("ember-project/tests/unit/serializers/blogpost-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Serializer | blogpost', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let serializer = store.serializerFor('blogpost');
+      assert.ok(serializer);
+    });
+    (0, _qunit.test)('it serializes records', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let record = store.createRecord('blogpost', {});
+      let serializedRecord = record.serialize();
+      assert.ok(serializedRecord);
     });
   });
 });

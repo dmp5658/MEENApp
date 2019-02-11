@@ -2,6 +2,18 @@
 
 
 
+;define("ember-project/adapters/application", ["exports", "ember-data"], function (_exports, _emberData) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _emberData.default.JSONAPIAdapter.extend({});
+
+  _exports.default = _default;
+});
 ;define("ember-project/app", ["exports", "ember-project/resolver", "ember-load-initializers", "ember-project/config/environment"], function (_exports, _resolver, _emberLoadInitializers, _environment) {
   "use strict";
 
@@ -54,10 +66,6 @@
         email,
         password
       } = creds;
-      const data = JSON.stringify({
-        email,
-        password
-      });
       console.log("AFTER STRINGIFY");
       console.log(data);
       const requestOptions = {
@@ -178,7 +186,6 @@
       login() {
         console.log('login');
         this.set('loginError', false);
-        this.set('loginError', false);
         const {
           email,
           password
@@ -192,6 +199,8 @@
           // so the error UI shows up
           this.set('loginError', true);
         });
+        console.log("IN LOGIN SESS");
+        console.log(s.isAuthenticated);
       },
 
       signout() {
@@ -261,14 +270,13 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
-    store: Ember.inject.service('store'),
     actions: {
       singupacc: function () {
         if (this.get('password') === this.get('retypedpassword')) {
           this.store.createRecord('user', {
             email: this.get('login'),
             password: this.get('password')
-          });
+          }).save();
           console.log('done');
         } else {
           alert("Passwords do not match");
@@ -623,7 +631,10 @@
   });
   _exports.default = void 0;
 
-  var _default = _emberData.default.Model.extend({});
+  var _default = _emberData.default.Model.extend({
+    email: _emberData.default.attr('string'),
+    password: _emberData.default.attr('string')
+  });
 
   _exports.default = _default;
 });
@@ -723,6 +734,8 @@
   }];
 
   var _default = Ember.Route.extend({
+    session: Ember.inject.service(),
+
     model() {
       // console.log("IN ROUTE");
       // console.log(blogposts);
@@ -770,6 +783,34 @@
   _exports.default = void 0;
 
   var _default = Ember.Route.extend({});
+
+  _exports.default = _default;
+});
+;define("ember-project/serializers/blogpost", ["exports", "ember-data"], function (_exports, _emberData) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _emberData.default.JSONAPISerializer.extend({
+    serialize(snapshot, options) {
+      let json = this._super(...arguments);
+
+      console.log("BOODU");
+      console.log(json.data.attributes.body);
+      json.body = json.data.attributes.body;
+      json.title = json.data.attributes.body;
+      let newjson = {
+        title: json.data.attributes.title,
+        body: json.data.attributes.body
+      };
+      console.log(newjson);
+      return newjson;
+    }
+
+  });
 
   _exports.default = _default;
 });
@@ -845,8 +886,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "HjvJKynA",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-sm-12 pull-left\"],[9],[0,\"\\n    \"],[1,[27,\"create-new-post\",null,[[\"blogpost\"],[[23,[\"model\"]]]]],false],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "cZLf/tHT",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-sm-12 pull-left\"],[9],[0,\"\\n    \"],[1,[27,\"create-new-post\",null,[[\"store\",\"blogpost\"],[[23,[\"store\"]],[23,[\"model\"]]]]],false],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/createpost.hbs"
     }
@@ -863,8 +904,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "/JogAL7f",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\n\"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\\nVIEW\\n\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\nVIEW\\n\"]],\"hasEval\":false}",
+    "id": "+HigVs/1",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[0,\"\\n\\n\"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\\nVIEW\\n\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n\\n    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\nVIEW\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/index.hbs"
     }
@@ -931,7 +972,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+e34b109a"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+1b0a201c"});
           }
         
 //# sourceMappingURL=ember-project.map

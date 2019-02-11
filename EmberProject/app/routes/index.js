@@ -1,4 +1,6 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
+
 
 let blogposts = [
   {
@@ -34,6 +36,7 @@ let blogposts = [
 
 export default Route.extend({
 
+  session: service(),
 
   model() {
 
