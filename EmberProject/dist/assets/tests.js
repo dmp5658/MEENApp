@@ -243,6 +243,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(false, 'serializers/blogpost.js should pass ESLint\n\n4:23 - \'options\' is defined but never used. (no-unused-vars)');
   });
+  QUnit.test('serializers/user.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/user.js should pass ESLint\n\n4:24 - \'options\' is defined but never used. (no-unused-vars)');
+  });
 });
 define("ember-project/tests/lint/templates.template.lint-test", [], function () {
   "use strict";
@@ -349,6 +353,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'unit/serializers/blogpost-test.js should pass ESLint\n\n');
   });
+  QUnit.test('unit/serializers/user-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/user-test.js should pass ESLint\n\n');
+  });
 });
 define("ember-project/tests/test-helper", ["ember-project/app", "ember-project/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
   "use strict";
@@ -452,6 +460,25 @@ define("ember-project/tests/unit/serializers/blogpost-test", ["qunit", "ember-qu
     (0, _qunit.test)('it serializes records', function (assert) {
       let store = this.owner.lookup('service:store');
       let record = store.createRecord('blogpost', {});
+      let serializedRecord = record.serialize();
+      assert.ok(serializedRecord);
+    });
+  });
+});
+define("ember-project/tests/unit/serializers/user-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Serializer | user', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let serializer = store.serializerFor('user');
+      assert.ok(serializer);
+    });
+    (0, _qunit.test)('it serializes records', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let record = store.createRecord('user', {});
       let serializedRecord = record.serialize();
       assert.ok(serializedRecord);
     });

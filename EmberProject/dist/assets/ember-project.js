@@ -798,15 +798,33 @@
     serialize(snapshot, options) {
       let json = this._super(...arguments);
 
-      console.log("BOODU");
-      console.log(json.data.attributes.body);
-      json.body = json.data.attributes.body;
-      json.title = json.data.attributes.body;
       let newjson = {
         title: json.data.attributes.title,
         body: json.data.attributes.body
       };
-      console.log(newjson);
+      return newjson;
+    }
+
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/serializers/user", ["exports", "ember-data"], function (_exports, _emberData) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _emberData.default.JSONAPISerializer.extend({
+    serialize(snapshot, options) {
+      let json = this._super(...arguments);
+
+      let newjson = {
+        email: json.data.attributes.email,
+        password: json.data.attributes.password
+      };
       return newjson;
     }
 
