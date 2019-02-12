@@ -38,6 +38,8 @@ export default Route.extend({
 
   session: service(),
   activate: function() {
+    console.log('INDEX LOG');
+    console.log(this.get('session.isAuthenticated'));
   },
   model() {
 
@@ -57,13 +59,7 @@ export default Route.extend({
       return result;
     });
 */
-  },
-
-
-  actions: {
-    createPost: function(){
-      console.log('we here');
-      this.transitionTo('createpost');
-    }
   }
+
+
 });

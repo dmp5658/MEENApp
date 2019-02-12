@@ -1,0 +1,12 @@
+<br><br>
+<div class="container">
+  <div class="col-md-12">
+      {{#if session.isAuthenticated}}
+        <button {{action "createPost"}} type="button" class="btn btn-primary">Create Post</button>
+      {{/if}}
+    <br><br>
+    {{#each model as |blogpost|}}
+      {{view-post blogpost=blogpost}}
+    {{/each}}
+  </div>
+</div>
