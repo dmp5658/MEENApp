@@ -21,8 +21,6 @@ export default Base.extend({
   authenticate(creds) {
     const { email, password } = creds;
 
-    console.log("AFTER STRINGIFY");
-    console.log(data);
 
     const requestOptions = {
       url: this.tokenEndpoint,

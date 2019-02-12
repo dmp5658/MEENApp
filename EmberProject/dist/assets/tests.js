@@ -177,7 +177,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('authenticators/knockjwt.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'authenticators/knockjwt.js should pass ESLint\n\n3:8 - \'config\' is defined but never used. (no-unused-vars)\n5:17 - Use import { Promise } from \'rsvp\'; instead of using Ember destructuring (ember/new-module-imports)\n5:41 - Use import { run } from \'@ember/runloop\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - Use import { get } from \'@ember/object\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - \'get\' is assigned a value but never used. (no-unused-vars)\n13:12 - Use import { isEmpty } from \'@ember/utils\'; instead of using Ember.isEmpty (ember/new-module-imports)\n25:17 - \'data\' is not defined. (no-undef)');
+    assert.ok(false, 'authenticators/knockjwt.js should pass ESLint\n\n3:8 - \'config\' is defined but never used. (no-unused-vars)\n5:17 - Use import { Promise } from \'rsvp\'; instead of using Ember destructuring (ember/new-module-imports)\n5:41 - Use import { run } from \'@ember/runloop\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - Use import { get } from \'@ember/object\'; instead of using Ember destructuring (ember/new-module-imports)\n5:46 - \'get\' is assigned a value but never used. (no-unused-vars)\n13:12 - Use import { isEmpty } from \'@ember/utils\'; instead of using Ember.isEmpty (ember/new-module-imports)');
   });
   QUnit.test('authorizers/knockjwt.js', function (assert) {
     assert.expect(1);

@@ -66,8 +66,6 @@
         email,
         password
       } = creds;
-      console.log("AFTER STRINGIFY");
-      console.log(data);
       const requestOptions = {
         url: this.tokenEndpoint,
         type: 'POST',
@@ -990,7 +988,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+1b0a201c"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+e80f7495"});
           }
         
 //# sourceMappingURL=ember-project.map

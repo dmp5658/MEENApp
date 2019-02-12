@@ -5,12 +5,10 @@ e.default=n}),define("ember-project/app",["exports","ember-project/resolver","em
 var r=Ember.Application.extend({modulePrefix:o.default.modulePrefix,podModulePrefix:o.default.podModulePrefix,Resolver:t.default});(0,n.default)(r,o.default.modulePrefix)
 var a=r
 e.default=a}),define("ember-project/authenticators/knockjwt",["exports","ember-simple-auth/authenticators/base","ember-project/config/environment"],function(e,t,n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var o=Ember,r=o.RSVP.Promise,a=o.$.ajax,l=o.run,i=(o.get,t.default.extend({tokenEndpoint:"http://localhost:3000/login",restore:function(e){return new r(function(t,n){Ember.isEmpty(e.token)?n():t(e)})},authenticate:function(e){var t=e.email,n=e.password
-console.log("AFTER STRINGIFY"),console.log(data)
-var o={url:this.tokenEndpoint,type:"POST",data:{email:t,password:n},contentType:"application/x-www-form-urlencoded",dataType:"json"}
+var o=Ember,r=o.RSVP.Promise,a=o.$.ajax,i=o.run,l=(o.get,t.default.extend({tokenEndpoint:"http://localhost:3000/login",restore:function(e){return new r(function(t,n){Ember.isEmpty(e.token)?n():t(e)})},authenticate:function(e){var t=e.email,n=e.password,o={url:this.tokenEndpoint,type:"POST",data:{email:t,password:n},contentType:"application/x-www-form-urlencoded",dataType:"json"}
 return console.log(o),new r(function(e,t){a(o).then(function(t){var n=t.jwt
-l(function(){e({token:n})})},function(e){l(function(){t(e)})})})},invalidate:function(e){return r.resolve(e)}}))
-e.default=i}),define("ember-project/authorizers/knockjwt",["exports","ember-simple-auth/authorizers/base"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+i(function(){e({token:n})})},function(e){i(function(){t(e)})})})},invalidate:function(e){return r.resolve(e)}}))
+e.default=l}),define("ember-project/authorizers/knockjwt",["exports","ember-simple-auth/authorizers/base"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default.extend({authorize:function(){}})
 e.default=n}),define("ember-project/components/create-new-post/component",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Component.extend({blogpost:null,router:Ember.inject.service("-routing"),actions:{save:function(e){console.log(e.title),console.log(e.body),console.log(e),e.save().then(function(e){Ember.Logger.info(e)}).catch(function(e){Ember.Logger.info("failure to save"),console.log(e)})}}})
@@ -35,8 +33,8 @@ e.default=t}),define("ember-project/components/view-post/component",["exports"],
 var t=Ember.Component.extend({})
 e.default=t}),define("ember-project/components/view-post/template",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"ZFtQzsS+",block:'{"symbols":[],"statements":[[0,"\\n"],[7,"h1"],[9],[1,[23,["blogpost","title"]],false],[10],[0,"\\n"],[7,"p"],[9],[1,[23,["blogpost","body"]],false],[10],[0,"\\n"],[7,"div"],[9],[0,"\\n  "],[7,"span"],[11,"class","badge"],[9],[0,"Posted "],[1,[23,["blogpost","datePosted"]],false],[10],[0,"\\n"],[10],[0,"\\n"],[7,"hr"],[9],[10],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-project/components/view-post/template.hbs"}})
-e.default=t}),define("ember-project/helpers/app-version",["exports","ember-project/config/environment","ember-cli-app-version/utils/regexp"],function(e,t,n){function o(e){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},r=t.default.APP.version,a=o.versionOnly||o.hideSha,l=o.shaOnly||o.hideVersion,i=null
-return a&&(o.showExtended&&(i=r.match(n.versionExtendedRegExp)),i||(i=r.match(n.versionRegExp))),l&&(i=r.match(n.shaRegExp)),i?i[0]:r}Object.defineProperty(e,"__esModule",{value:!0}),e.appVersion=o,e.default=void 0
+e.default=t}),define("ember-project/helpers/app-version",["exports","ember-project/config/environment","ember-cli-app-version/utils/regexp"],function(e,t,n){function o(e){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},r=t.default.APP.version,a=o.versionOnly||o.hideSha,i=o.shaOnly||o.hideVersion,l=null
+return a&&(o.showExtended&&(l=r.match(n.versionExtendedRegExp)),l||(l=r.match(n.versionRegExp))),i&&(l=r.match(n.shaRegExp)),l?l[0]:r}Object.defineProperty(e,"__esModule",{value:!0}),e.appVersion=o,e.default=void 0
 var r=Ember.Helper.helper(o)
 e.default=r}),define("ember-project/helpers/pluralize",["exports","ember-inflector/lib/helpers/pluralize"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default
@@ -51,9 +49,9 @@ e.register("container-debug-adapter:main",t.default),e.inject("container-debug-a
 e.default=n}),define("ember-project/initializers/ember-data",["exports","ember-data/setup-container","ember-data"],function(e,t,n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var o={name:"ember-data",initialize:t.default}
 e.default=o}),define("ember-project/initializers/ember-simple-auth",["exports","ember-project/config/environment","ember-simple-auth/configuration","ember-simple-auth/initializers/setup-session","ember-simple-auth/initializers/setup-session-service","ember-simple-auth/initializers/setup-session-restoration"],function(e,t,n,o,r,a){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var l={name:"ember-simple-auth",initialize:function(e){var l=t.default["ember-simple-auth"]||{}
-l.rootURL=t.default.rootURL||t.default.baseURL,n.default.load(l),(0,o.default)(e),(0,r.default)(e),(0,a.default)(e)}}
-e.default=l}),define("ember-project/initializers/export-application-global",["exports","ember-project/config/environment"],function(e,t){function n(){var e=arguments[1]||arguments[0]
+var i={name:"ember-simple-auth",initialize:function(e){var i=t.default["ember-simple-auth"]||{}
+i.rootURL=t.default.rootURL||t.default.baseURL,n.default.load(i),(0,o.default)(e),(0,r.default)(e),(0,a.default)(e)}}
+e.default=i}),define("ember-project/initializers/export-application-global",["exports","ember-project/config/environment"],function(e,t){function n(){var e=arguments[1]||arguments[0]
 if(!1!==t.default.exportApplicationGlobal){var n
 if("undefined"!=typeof window)n=window
 else if("undefined"!=typeof global)n=global
@@ -108,4 +106,4 @@ var t=Ember.HTMLBars.template({id:"8nfX/ii3",block:'{"symbols":[],"statements":[
 e.default=t}),define("ember-project/templates/signup",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"/2nEHWh0",block:'{"symbols":[],"statements":[[1,[27,"signup-form",null,[["store"],[[23,["store"]]]]],false]],"hasEval":false}',meta:{moduleName:"ember-project/templates/signup.hbs"}})
 e.default=t}),define("ember-project/config/environment",[],function(){try{var e="ember-project/config/environment",t=document.querySelector('meta[name="'+e+'"]').getAttribute("content"),n={default:JSON.parse(unescape(t))}
-return Object.defineProperty(n,"__esModule",{value:!0}),n}catch(o){throw new Error('Could not read config from meta tag with name "'+e+'".')}}),runningTests||require("ember-project/app").default.create({name:"ember-project",version:"0.0.0+eaf33f71"})
+return Object.defineProperty(n,"__esModule",{value:!0}),n}catch(o){throw new Error('Could not read config from meta tag with name "'+e+'".')}}),runningTests||require("ember-project/app").default.create({name:"ember-project",version:"0.0.0+e80f7495"})
