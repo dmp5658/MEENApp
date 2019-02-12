@@ -221,7 +221,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('routes/application.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/application.js should pass ESLint\n\n4:16 - Use import Route from \'@ember/routing/route\'; instead of using Ember.Route (ember/new-module-imports)');
+    assert.ok(false, 'routes/application.js should pass ESLint\n\n5:16 - Use import Route from \'@ember/routing/route\'; instead of using Ember.Route (ember/new-module-imports)');
   });
   QUnit.test('routes/createpost.js', function (assert) {
     assert.expect(1);
@@ -247,6 +247,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(false, 'serializers/user.js should pass ESLint\n\n4:24 - \'options\' is defined but never used. (no-unused-vars)');
   });
+  QUnit.test('services/session-account.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'services/session-account.js should pass ESLint\n\n');
+  });
 });
 define("ember-project/tests/lint/templates.template.lint-test", [], function () {
   "use strict";
@@ -258,7 +262,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/login-form/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  29:2  error  Incorrect indentation for `{{#unless}}` beginning at L29:C2. Expected `{{#unless}}` to be at an indentation of 4 but was found at 2.  block-indentation\n  46:4  error  Incorrect indentation for inverse block of `{{#unless}}` beginning at L29:C2. Expected `{{else}}` starting at L46:C4 to be at an indentation of 2 but was found at 4.  block-indentation\n  52:11  error  Incorrect indentation for `unless` beginning at L29:C2. Expected `{{/unless}}` ending at L52:C11 to be at an indentation of 2 but was found at 0.  block-indentation\n  47:2  error  Incorrect indentation for `<a>` beginning at L47:C2. Expected `<a>` to be at an indentation of 4 but was found at 2.  block-indentation\n  32:21  error  you must use double quotes in templates  quotes\n  32:32  error  you must use double quotes in templates  quotes\n  35:42  error  you must use double quotes in templates  quotes\n  38:66  error  you must use double quotes in templates  quotes\n  38:82  error  you must use double quotes in templates  quotes\n  46:4  error  Using an {{else}} block with {{unless}} should be avoided.  simple-unless\n');
+    assert.ok(false, 'ember-project/components/login-form/template.hbs should pass TemplateLint.\n\nember-project/components/login-form/template.hbs\n  29:2  error  Incorrect indentation for `{{#if}}` beginning at L29:C2. Expected `{{#if}}` to be at an indentation of 4 but was found at 2.  block-indentation\n  58:7  error  Incorrect indentation for `if` beginning at L29:C2. Expected `{{/if}}` ending at L58:C7 to be at an indentation of 2 but was found at 0.  block-indentation\n  30:2  error  Incorrect indentation for `<a>` beginning at L30:C2. Expected `<a>` to be at an indentation of 4 but was found at 2.  block-indentation\n  37:21  error  you must use double quotes in templates  quotes\n  37:32  error  you must use double quotes in templates  quotes\n  40:42  error  you must use double quotes in templates  quotes\n  43:66  error  you must use double quotes in templates  quotes\n  43:82  error  you must use double quotes in templates  quotes\n');
   });
   QUnit.test('ember-project/components/nav-bar/template.hbs', function (assert) {
     assert.expect(1);
@@ -356,6 +360,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('unit/serializers/user-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/serializers/user-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('unit/services/session-account-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/services/session-account-test.js should pass ESLint\n\n');
   });
 });
 define("ember-project/tests/test-helper", ["ember-project/app", "ember-project/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
@@ -481,6 +489,18 @@ define("ember-project/tests/unit/serializers/user-test", ["qunit", "ember-qunit"
       let record = store.createRecord('user', {});
       let serializedRecord = record.serialize();
       assert.ok(serializedRecord);
+    });
+  });
+});
+define("ember-project/tests/unit/services/session-account-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Service | session-account', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let service = this.owner.lookup('service:session-account');
+      assert.ok(service);
     });
   });
 });

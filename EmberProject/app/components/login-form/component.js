@@ -16,7 +16,7 @@ export default Component.extend({
         this.set('loginError', true);
     });
     console.log("IN LOGIN SESS");
-    console.log(s.isAuthenticated);
+    console.log(this.get('session.isAuthenticated'));
 
     },
     signout(){

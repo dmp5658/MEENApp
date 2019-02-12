@@ -26,8 +26,13 @@
     </style>
   </head>
   <body>
-  {{#unless session.isAuthenticated}}
-
+  {{#if session.isAuthenticated}}
+  <a href="/logout"
+     class="logoutBtn"
+     {{action "signout"}}>
+    logout
+  </a>
+  {{else}}
     <div class="login-form">
       <form {{action 'login' on='submit'}}>
         <h2 class="text-center">Log in</h2>
@@ -40,16 +45,17 @@
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
+        {{#if loginError}}
+          <div class="alert alert-danger text-center" role="alert">
+            Incorrect Login Information
+          </div>
+        {{/if}}
       </form>
       <p class="text-center">{{ link-to "Create an Account" "signup"  }}</p>
     </div>
-    {{else}}
-  <a href="/logout"
-     class="logoutBtn"
-     {{action "signout"}}>
-    logout
-  </a>
-{{/unless}}
+
+
+{{/if}}
 
   </body>
 </html>
