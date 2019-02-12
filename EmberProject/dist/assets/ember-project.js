@@ -250,8 +250,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "9X+wXKQI",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-default\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"navbar-toggle collapsed\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#menu-collapse\"],[11,\"type\",\"button\"],[9],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"Toggle navigation\"],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n        \"],[7,\"span\"],[11,\"class\",\"icon-bar\"],[9],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],[[\"class\"],[\"navbar-brand\"]],{\"statements\":[[0,\"Home\"]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse pull-right\"],[11,\"id\",\"menu-collapse\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav\"],[9],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[0,\"SignUp\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Login\"]],\"parameters\":[]},null],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"]],\"hasEval\":false}",
+    "id": "ht4JAJ6+",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-inverse\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],null,{\"statements\":[[0,\" \"],[7,\"div\"],[11,\"class\",\"navbar-brand\"],[9],[0,\"BlogPostSite\"],[10]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav navbar-right\"],[9],[0,\"\\n      \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-user\"],[9],[10],[0,\" Sign Up\"]],\"parameters\":[]},null],[10],[0,\"\\n      \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-log-in\"],[9],[10],[0,\" Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/nav-bar/template.hbs"
     }
@@ -884,8 +884,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "VXWH7LGB",
-    "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "e+/Ni+7O",
+    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[1,[21,\"nav-bar\"],false],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/application.hbs"
     }
@@ -988,7 +988,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+e80f7495"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+ecd21d9d"});
           }
         
 //# sourceMappingURL=ember-project.map

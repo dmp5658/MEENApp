@@ -1,22 +1,12 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"
-      data-toggle="collapse" data-target="#menu-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      {{ link-to "Home" "index" class="navbar-brand" }}
+      {{#link-to 'index'}} <div class="navbar-brand">BlogPostSite</div>{{/link-to}}
     </div>
-
-    <div class="collapse navbar-collapse pull-right" id="menu-collapse">
-      <ul class="nav navbar-nav">
-        <li>{{ link-to "SignUp" "signup" }}</li>
-        <li>{{ link-to "Login" "login" }}</li>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>{{#link-to 'signup'}}<span class="glyphicon glyphicon-user"></span> Sign Up{{/link-to}}</li>
+      <li>{{#link-to 'login'}}<span class="glyphicon glyphicon-log-in"></span> Login{{/link-to}}</li>
+    </ul>
   </div>
 </nav>
 
