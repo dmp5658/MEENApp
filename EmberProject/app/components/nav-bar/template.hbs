@@ -4,8 +4,12 @@
       {{#link-to 'index'}} <div class="navbar-brand">BlogPostSite</div>{{/link-to}}
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li>{{#link-to 'signup'}}<span class="glyphicon glyphicon-user"></span> Sign Up{{/link-to}}</li>
-      <li>{{#link-to 'login'}}<span class="glyphicon glyphicon-log-in"></span> Login{{/link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li>{{#link-to 'logout'}}<span class="glyphicon glyphicon-log-out"></span> Logout{{/link-to}}</li>
+      {{else}}
+        <li>{{#link-to 'signup'}}<span class="glyphicon glyphicon-user"></span> Sign Up{{/link-to}}</li>
+        <li>{{#link-to 'login'}}<span class="glyphicon glyphicon-log-in"></span> Login{{/link-to}}</li>
+      {{/if}}
     </ul>
   </div>
 </nav>

@@ -37,7 +37,8 @@ let blogposts = [
 export default Route.extend({
 
   session: service(),
-
+  activate: function() {
+  },
   model() {
 
    // console.log("IN ROUTE");
