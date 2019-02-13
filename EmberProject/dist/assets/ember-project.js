@@ -306,8 +306,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "plgKfc2c",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "3daRCQDD",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},{\"statements\":[[0,\"      No posts!\\n\"]],\"parameters\":[]}],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/main-page/template.hbs"
     }
@@ -851,14 +851,12 @@
       //var code = this.store.findAll('blogpost');
       //console.log(typeof code);
       //console.log(code);
-      return blogposts; //console.log(this.store.findAll('blogpost'));
-
-      /*
+      //return blogposts;
+      //console.log(this.store.findAll('blogpost'));
       return this.store.findAll('blogpost').then(result => {
         console.log(result);
-         return result;
+        return result;
       });
-      */
     }
 
   });

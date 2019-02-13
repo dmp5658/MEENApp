@@ -7,6 +7,8 @@
     <br><br>
     {{#each model as |blogpost|}}
       {{view-post blogpost=blogpost}}
+    {{else}}
+      No posts!
     {{/each}}
   </div>
 </div>

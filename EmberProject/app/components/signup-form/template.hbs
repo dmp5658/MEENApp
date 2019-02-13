@@ -41,6 +41,11 @@
         <div class="form-group">
           <button class="btn btn-primary btn-block" {{action 'singupacc'}}>Sign Up</button>
         </div>
+        {{#if signupError}}
+          <div class="alert alert-danger text-center" role="alert">
+            Passwords do not match
+          </div>
+        {{/if}}
       </form>
       <p class="text-center">{{ link-to "Already have an account? Login" "login"  }}</p>
     </div>

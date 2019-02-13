@@ -285,7 +285,7 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   });
   QUnit.test('routes/index.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/index.js should pass ESLint\n\n');
+    assert.ok(false, 'routes/index.js should pass ESLint\n\n4:5 - \'blogposts\' is assigned a value but never used. (no-unused-vars)');
   });
   QUnit.test('routes/login.js', function (assert) {
     assert.expect(1);
