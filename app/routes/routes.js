@@ -39,6 +39,22 @@ router.get('/users',(req, res) => {
     })
 });
 
+router.get('/blogposts/:id',(req, res) => {
+    console.log(req.params.id);
+    BlogPostSchema.find({_id:req.params.id}, (err,blogpost) => {
+        if(err) {
+            res.send(err);
+        }
+        console.log(blogpost);
+
+        //Serialize reversed blogpost to send
+        var jsonapi = BlogPostSerializer.serialize(blogpost);
+
+
+        res.send(jsonapi);
+    })
+});
+
 router.get('/blogposts',(req, res) => {
     console.log("API GET REQUEST");
     BlogPostSchema.find({}, (err,blogpost) => {

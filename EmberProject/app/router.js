@@ -14,6 +14,10 @@ Router.map(function() {
   this.route('login');
   this.route('createpost');
   this.route('logout');
+
+  this.route('post', {
+    path: '/post/:blogpost_id'
+  });
 });
 
 export default Router;

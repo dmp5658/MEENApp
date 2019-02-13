@@ -295,6 +295,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'routes/logout.js should pass ESLint\n\n');
   });
+  QUnit.test('routes/post.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/post.js should pass ESLint\n\n');
+  });
   QUnit.test('routes/signup.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/signup.js should pass ESLint\n\n');
@@ -346,7 +350,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/view-post/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\n');
+    assert.ok(false, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\nember-project/components/view-post/template.hbs\n  2:15  error  you must use double quotes in templates  quotes\n');
   });
   QUnit.test('ember-project/templates/application.hbs', function (assert) {
     assert.expect(1);
@@ -367,6 +371,10 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   QUnit.test('ember-project/templates/logout.hbs', function (assert) {
     assert.expect(1);
     assert.ok(true, 'ember-project/templates/logout.hbs should pass TemplateLint.\n\n');
+  });
+  QUnit.test('ember-project/templates/post.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/templates/post.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('ember-project/templates/signup.hbs', function (assert) {
     assert.expect(1);
@@ -436,6 +444,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('unit/routes/logout-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/logout-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('unit/routes/post-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/post-test.js should pass ESLint\n\n');
   });
   QUnit.test('unit/routes/signup-test.js', function (assert) {
     assert.expect(1);
@@ -542,6 +554,17 @@ define("ember-project/tests/unit/routes/logout-test", ["qunit", "ember-qunit"], 
     (0, _emberQunit.setupTest)(hooks);
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:logout');
+      assert.ok(route);
+    });
+  });
+});
+define("ember-project/tests/unit/routes/post-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Route | post', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:post');
       assert.ok(route);
     });
   });

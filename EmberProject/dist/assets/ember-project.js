@@ -306,8 +306,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "3daRCQDD",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[1]},{\"statements\":[[0,\"      No posts!\\n\"]],\"parameters\":[]}],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "J0sF9ucw",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"col-md-12\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"button\"],[11,\"class\",\"btn btn-primary\"],[11,\"type\",\"button\"],[9],[0,\"Create Post\"],[3,\"action\",[[22,0,[]],\"createPost\"]],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[4,\"if\",[[22,1,[\"id\"]]],null,{\"statements\":[[0,\"        \"],[1,[27,\"view-post\",null,[[\"blogpost\"],[[22,1,[]]]]],false],[0,\"\\n\"]],\"parameters\":[]},null]],\"parameters\":[1]},{\"statements\":[[0,\"      No posts!\\n\"]],\"parameters\":[]}],[0,\"  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/main-page/template.hbs"
     }
@@ -357,16 +357,19 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
+    router: Ember.inject.service(),
     actions: {
       singupacc: function () {
+        this.set('signupError', false);
+
         if (this.get('password') === this.get('retypedpassword')) {
           this.store.createRecord('user', {
             email: this.get('login'),
             password: this.get('password')
           }).save();
-          console.log('done');
+          this.get('router').transitionTo('index');
         } else {
-          alert("Passwords do not match");
+          this.set('signupError', true);
         }
       }
     }
@@ -383,8 +386,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "lqHPldDJ",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .signup-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .signup-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .signup-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"signup-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"retypedpassword\"]],\"form-control\",\"Retype Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Sign Up\"],[3,\"action\",[[22,0,[]],\"singupacc\"]],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Already have an account? Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
+    "id": "zzJET3e1",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"html\"],[11,\"lang\",\"en\"],[9],[0,\"\\n\\n  \"],[7,\"head\"],[9],[0,\"\\n    \"],[7,\"style\"],[11,\"type\",\"text/css\"],[9],[0,\"\\n      .signup-form {\\n        width: 340px;\\n          margin: 50px auto;\\n      }\\n        .signup-form form {\\n          margin-bottom: 15px;\\n            background: #f7f7f7;\\n            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\\n            padding: 30px;\\n        }\\n        .signup-form h2 {\\n            margin: 0 0 15px;\\n        }\\n        .form-control, .btn {\\n            min-height: 38px;\\n            border-radius: 2px;\\n        }\\n        .btn {\\n            font-size: 15px;\\n            font-weight: bold;\\n        }\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"body\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"signup-form\"],[9],[0,\"\\n      \"],[7,\"form\"],[9],[0,\"\\n        \"],[7,\"h2\"],[11,\"class\",\"text-center\"],[9],[0,\"Sign Up\"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"placeholder\",\"class\",\"required\"],[[23,[\"login\"]],\"Login\",\"form-control\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"password\"]],\"form-control\",\"Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[1,[27,\"input\",null,[[\"value\",\"class\",\"placeholder\",\"type\",\"required\"],[[23,[\"retypedpassword\"]],\"form-control\",\"Retype Password\",\"password\",\"required\"]]],false],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"form-group\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[9],[0,\"Sign Up\"],[3,\"action\",[[22,0,[]],\"singupacc\"]],[10],[0,\"\\n        \"],[10],[0,\"\\n\"],[4,\"if\",[[23,[\"signupError\"]]],null,{\"statements\":[[0,\"          \"],[7,\"div\"],[11,\"class\",\"alert alert-danger text-center\"],[11,\"role\",\"alert\"],[9],[0,\"\\n            Passwords do not match\\n          \"],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"p\"],[11,\"class\",\"text-center\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[0,\"Already have an account? Login\"]],\"parameters\":[]},null],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/signup-form/template.hbs"
     }
@@ -413,8 +416,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "knzmrSjc",
-    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[1,[23,[\"blogpost\",\"title\"]],false],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "lN3ViuE8",
+    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[4,\"link-to\",[\"post\",[23,[\"blogpost\",\"id\"]]],null,{\"statements\":[[1,[23,[\"blogpost\",\"title\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/view-post/template.hbs"
     }
@@ -752,6 +755,9 @@
     this.route('login');
     this.route('createpost');
     this.route('logout');
+    this.route('post', {
+      path: '/post/:blogpost_id'
+    });
   });
   var _default = Router;
   _exports.default = _default;
@@ -884,6 +890,23 @@
   _exports.default = void 0;
 
   var _default = Ember.Route.extend({});
+
+  _exports.default = _default;
+});
+;define("ember-project/routes/post", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Route.extend({
+    model(params) {
+      return this.store.findRecord('blogpost', params.blogpost_id);
+    }
+
+  });
 
   _exports.default = _default;
 });
@@ -1140,6 +1163,24 @@
 
   _exports.default = _default;
 });
+;define("ember-project/templates/post", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "cgyHR40j",
+    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[4,\"if\",[[22,1,[\"id\"]]],null,{\"statements\":[[0,\"    \"],[7,\"h1\"],[9],[1,[22,1,[\"title\"]],false],[10],[0,\"\\n    \"],[7,\"p\"],[9],[1,[22,1,[\"body\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[22,1,[\"datePosted\"]],false],[10],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[22,1,[\"user\"]],false],[10],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"parameters\":[]},null]],\"parameters\":[1]},{\"statements\":[[0,\"  Error!\\n\"]],\"parameters\":[]}]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/templates/post.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
 ;define("ember-project/templates/signup", ["exports"], function (_exports) {
   "use strict";
 
@@ -1181,7 +1222,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+0b167eed"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+9a8d8b65"});
           }
         
 //# sourceMappingURL=ember-project.map
