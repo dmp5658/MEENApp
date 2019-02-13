@@ -115,6 +115,30 @@ define("ember-project/tests/integration/components/logout-form/component-test", 
     });
   });
 });
+define("ember-project/tests/integration/components/main-page/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | main-page', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "5UAon/4f",
+        "block": "{\"symbols\":[],\"statements\":[[1,[21,\"main-page\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "WWkOHFdQ",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"main-page\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define("ember-project/tests/integration/components/nav-bar/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
   "use strict";
 
@@ -219,6 +243,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'components/logout-form/component.js should pass ESLint\n\n');
   });
+  QUnit.test('components/main-page/component.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/main-page/component.js should pass ESLint\n\n');
+  });
   QUnit.test('components/nav-bar/component.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/nav-bar/component.js should pass ESLint\n\n');
@@ -279,6 +307,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(false, 'serializers/user.js should pass ESLint\n\n4:24 - \'options\' is defined but never used. (no-unused-vars)');
   });
+  QUnit.test('services/currentuser.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'services/currentuser.js should pass ESLint\n\n');
+  });
   QUnit.test('services/session-account.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'services/session-account.js should pass ESLint\n\n');
@@ -290,7 +322,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   QUnit.module('TemplateLint');
   QUnit.test('ember-project/components/create-new-post/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'ember-project/components/create-new-post/template.hbs should pass TemplateLint.\n\n');
+    assert.ok(false, 'ember-project/components/create-new-post/template.hbs should pass TemplateLint.\n\nember-project/components/create-new-post/template.hbs\n  13:4  error  Incorrect indentation for `<p>` beginning at L13:C4. Expected `<p>` to be at an indentation of 2 but was found at 4.  block-indentation\n  13:13  error  Attribute value should be either quoted or wrapped in mustaches  no-quoteless-attributes\n');
   });
   QUnit.test('ember-project/components/login-form/template.hbs', function (assert) {
     assert.expect(1);
@@ -299,6 +331,10 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   QUnit.test('ember-project/components/logout-form/template.hbs', function (assert) {
     assert.expect(1);
     assert.ok(false, 'ember-project/components/logout-form/template.hbs should pass TemplateLint.\n\nember-project/components/logout-form/template.hbs\n  30:21  error  you must use double quotes in templates  quotes\n  30:34  error  you must use double quotes in templates  quotes\n');
+  });
+  QUnit.test('ember-project/components/main-page/template.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'ember-project/components/main-page/template.hbs should pass TemplateLint.\n\nember-project/components/main-page/template.hbs\n  4:6  error  Incorrect indentation for `{{#if}}` beginning at L4:C6. Expected `{{#if}}` to be at an indentation of 4 but was found at 6.  block-indentation\n');
   });
   QUnit.test('ember-project/components/nav-bar/template.hbs', function (assert) {
     assert.expect(1);
@@ -322,7 +358,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/templates/index.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/templates/index.hbs should pass TemplateLint.\n\nember-project/templates/index.hbs\n  9:6  error  Incorrect indentation for `<button>` beginning at L9:C6. Expected `<button>` to be at an indentation of 4 but was found at 6.  block-indentation\n');
+    assert.ok(true, 'ember-project/templates/index.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('ember-project/templates/login.hbs', function (assert) {
     assert.expect(1);
@@ -352,6 +388,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('integration/components/logout-form/component-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/logout-form/component-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('integration/components/main-page/component-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/main-page/component-test.js should pass ESLint\n\n');
   });
   QUnit.test('integration/components/nav-bar/component-test.js', function (assert) {
     assert.expect(1);
@@ -408,6 +448,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('unit/serializers/user-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/serializers/user-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('unit/services/currentuser-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/services/currentuser-test.js should pass ESLint\n\n');
   });
   QUnit.test('unit/services/session-account-test.js', function (assert) {
     assert.expect(1);
@@ -548,6 +592,18 @@ define("ember-project/tests/unit/serializers/user-test", ["qunit", "ember-qunit"
       let record = store.createRecord('user', {});
       let serializedRecord = record.serialize();
       assert.ok(serializedRecord);
+    });
+  });
+});
+define("ember-project/tests/unit/services/currentuser-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Service | currentuser', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let service = this.owner.lookup('service:currentuser');
+      assert.ok(service);
     });
   });
 });

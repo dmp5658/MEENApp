@@ -5,7 +5,8 @@ export default DS.JSONAPISerializer.extend({
     let json = this._super(...arguments);
     let newjson = {
       title: json.data.attributes.title,
-      body:  json.data.attributes.body
+      body:  json.data.attributes.body,
+      user:  json.data.attributes.user
     };
 
     return newjson;

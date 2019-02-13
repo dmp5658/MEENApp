@@ -26,6 +26,10 @@ const BlogPostSchema = new Schema({
     datePosted: {
         type: Date,
         default: Date.now
+    },
+    user: {
+        type: String,
+        required: true
     }
 
 });

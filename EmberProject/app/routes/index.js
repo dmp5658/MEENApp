@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
 
 let blogposts = [
@@ -36,11 +35,6 @@ let blogposts = [
 
 export default Route.extend({
 
-  session: service(),
-  activate: function() {
-    console.log('INDEX LOG');
-    console.log(this.get('session.isAuthenticated'));
-  },
   model() {
 
    // console.log("IN ROUTE");
