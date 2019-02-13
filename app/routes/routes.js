@@ -63,15 +63,10 @@ router.get('/blogposts',(req, res) => {
         }
         console.log(blogpost);
 
-        //REVERSES BLOGPOST ENTRIES
-        var ReverseArray = [];
-        var length = blogpost.length;
-        for(var i = length-1;i>=0;i--){
-            ReverseArray.push(blogpost[i]);
-        }
+
 
         //Serialize reversed blogpost to send
-        var jsonapi = BlogPostSerializer.serialize(ReverseArray);
+        var jsonapi = BlogPostSerializer.serialize(blogpost);
 
 
         res.send(jsonapi);
