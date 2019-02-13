@@ -41,7 +41,11 @@ var t=Ember.HTMLBars.template({id:"zzJET3e1",block:'{"symbols":[],"statements":[
 e.default=t}),define("ember-project/components/view-post/component",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Component.extend({})
 e.default=t}),define("ember-project/components/view-post/template",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var t=Ember.HTMLBars.template({id:"lN3ViuE8",block:'{"symbols":[],"statements":[[0,"\\n"],[7,"h1"],[9],[4,"link-to",["post",[23,["blogpost","id"]]],null,{"statements":[[1,[23,["blogpost","title"]],false]],"parameters":[]},null],[10],[0,"\\n"],[7,"p"],[9],[1,[23,["blogpost","body"]],false],[10],[0,"\\n"],[7,"div"],[9],[0,"\\n  "],[7,"span"],[11,"class","badge"],[9],[0,"Posted on "],[1,[23,["blogpost","datePosted"]],false],[10],[0,"\\n  "],[7,"span"],[11,"class","badge"],[9],[0,"Posted by "],[1,[23,["blogpost","user"]],false],[10],[0,"\\n"],[10],[0,"\\n"],[7,"hr"],[9],[10],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-project/components/view-post/template.hbs"}})
+var t=Ember.HTMLBars.template({id:"BNPlc1/3",block:'{"symbols":[],"statements":[[7,"h1"],[9],[4,"link-to",["post",[23,["blogpost","id"]]],null,{"statements":[[1,[23,["blogpost","title"]],false]],"parameters":[]},null],[10],[0,"\\n"],[7,"p"],[9],[1,[23,["blogpost","body"]],false],[10],[0,"\\n"],[7,"div"],[9],[0,"\\n  "],[7,"span"],[11,"class","badge"],[9],[0,"Posted on "],[1,[23,["blogpost","datePosted"]],false],[10],[0,"\\n  "],[7,"span"],[11,"class","badge"],[9],[0,"Posted by "],[1,[23,["blogpost","user"]],false],[10],[0,"\\n"],[10],[0,"\\n"],[7,"hr"],[9],[10],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-project/components/view-post/template.hbs"}})
+e.default=t}),define("ember-project/components/view-single-post/component",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var t=Ember.Component.extend({})
+e.default=t}),define("ember-project/components/view-single-post/template",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var t=Ember.HTMLBars.template({id:"AI9rlznW",block:'{"symbols":[],"statements":[[0,"    "],[7,"h1"],[9],[1,[23,["model","title"]],false],[10],[0,"\\n    "],[7,"p"],[9],[1,[23,["model","body"]],false],[10],[0,"\\n    "],[7,"div"],[9],[0,"\\n      "],[7,"span"],[11,"class","badge"],[9],[0,"Posted on "],[1,[23,["model","datePosted"]],false],[10],[0,"\\n      "],[7,"span"],[11,"class","badge"],[9],[0,"Posted by "],[1,[23,["model","user"]],false],[10],[0,"\\n    "],[10],[0,"\\n    "],[7,"hr"],[9],[10],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-project/components/view-single-post/template.hbs"}})
 e.default=t}),define("ember-project/helpers/app-version",["exports","ember-project/config/environment","ember-cli-app-version/utils/regexp"],function(e,t,n){function o(e){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},r=t.default.APP.version,a=o.versionOnly||o.hideSha,s=o.shaOnly||o.hideVersion,i=null
 return a&&(o.showExtended&&(i=r.match(n.versionExtendedRegExp)),i||(i=r.match(n.versionRegExp))),s&&(i=r.match(n.shaRegExp)),i?i[0]:r}Object.defineProperty(e,"__esModule",{value:!0}),e.appVersion=o,e.default=void 0
 var r=Ember.Helper.helper(o)
@@ -71,12 +75,12 @@ var o={name:"export-application-global",initialize:n}
 e.default=o}),define("ember-project/instance-initializers/ember-data",["exports","ember-data/initialize-store-service"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n={name:"ember-data",initialize:t.default}
 e.default=n}),define("ember-project/instance-initializers/ember-simple-auth",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default={name:"ember-simple-auth",initialize:function(){}}}),define("ember-project/models/blogpost",["exports","ember-data"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+e.default={name:"ember-simple-auth",initialize:function(){}}})
+define("ember-project/models/blogpost",["exports","ember-data"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default.Model.extend({title:t.default.attr("string"),body:t.default.attr("string"),datePosted:t.default.attr("string"),user:t.default.attr("string")})
 e.default=n}),define("ember-project/models/user",["exports","ember-data"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default.Model.extend({email:t.default.attr("string"),password:t.default.attr("string")})
-e.default=n})
-define("ember-project/resolver",["exports","ember-resolver"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+e.default=n}),define("ember-project/resolver",["exports","ember-resolver"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default
 e.default=n}),define("ember-project/router",["exports","ember-project/config/environment"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=Ember.Router.extend({location:t.default.locationType,rootURL:t.default.rootURL})
@@ -95,7 +99,7 @@ var t=Ember.Route.extend({})
 e.default=t}),define("ember-project/routes/logout",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Route.extend({})
 e.default=t}),define("ember-project/routes/post",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var t=Ember.Route.extend({model:function(e){return this.store.findRecord("blogpost",e.blogpost_id)}})
+var t=Ember.Route.extend({model:function(e){return this.store.findRecord("blogpost",e.blogpost_id).then(function(e){return console.log("RESULT"),console.log(e),e})}})
 e.default=t}),define("ember-project/routes/signup",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Route.extend({})
 e.default=t}),define("ember-project/serializers/blogpost",["exports","ember-data"],function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
@@ -128,8 +132,8 @@ var t=Ember.HTMLBars.template({id:"8nfX/ii3",block:'{"symbols":[],"statements":[
 e.default=t}),define("ember-project/templates/logout",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"VHASemAi",block:'{"symbols":[],"statements":[[1,[21,"logout-form"],false]],"hasEval":false}',meta:{moduleName:"ember-project/templates/logout.hbs"}})
 e.default=t}),define("ember-project/templates/post",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var t=Ember.HTMLBars.template({id:"cgyHR40j",block:'{"symbols":["blogpost"],"statements":[[4,"each",[[23,["model"]]],null,{"statements":[[4,"if",[[22,1,["id"]]],null,{"statements":[[0,"    "],[7,"h1"],[9],[1,[22,1,["title"]],false],[10],[0,"\\n    "],[7,"p"],[9],[1,[22,1,["body"]],false],[10],[0,"\\n    "],[7,"div"],[9],[0,"\\n      "],[7,"span"],[11,"class","badge"],[9],[0,"Posted on "],[1,[22,1,["datePosted"]],false],[10],[0,"\\n      "],[7,"span"],[11,"class","badge"],[9],[0,"Posted by "],[1,[22,1,["user"]],false],[10],[0,"\\n    "],[10],[0,"\\n    "],[7,"hr"],[9],[10],[0,"\\n"]],"parameters":[]},null]],"parameters":[1]},{"statements":[[0,"  Error!\\n"]],"parameters":[]}]],"hasEval":false}',meta:{moduleName:"ember-project/templates/post.hbs"}})
+var t=Ember.HTMLBars.template({id:"9Q66aGhP",block:'{"symbols":[],"statements":[[1,[27,"view-single-post",null,[["model"],[[23,["model"]]]]],false]],"hasEval":false}',meta:{moduleName:"ember-project/templates/post.hbs"}})
 e.default=t}),define("ember-project/templates/signup",["exports"],function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"/2nEHWh0",block:'{"symbols":[],"statements":[[1,[27,"signup-form",null,[["store"],[[23,["store"]]]]],false]],"hasEval":false}',meta:{moduleName:"ember-project/templates/signup.hbs"}})
 e.default=t}),define("ember-project/config/environment",[],function(){try{var e="ember-project/config/environment",t=document.querySelector('meta[name="'+e+'"]').getAttribute("content"),n={default:JSON.parse(unescape(t))}
-return Object.defineProperty(n,"__esModule",{value:!0}),n}catch(o){throw new Error('Could not read config from meta tag with name "'+e+'".')}}),runningTests||require("ember-project/app").default.create({name:"ember-project",version:"0.0.0+9a8d8b65"})
+return Object.defineProperty(n,"__esModule",{value:!0}),n}catch(o){throw new Error('Could not read config from meta tag with name "'+e+'".')}}),runningTests||require("ember-project/app").default.create({name:"ember-project",version:"0.0.0+6f2c9067"})

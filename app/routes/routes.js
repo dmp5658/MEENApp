@@ -47,7 +47,7 @@ router.get('/blogposts/:id',(req, res) => {
         }
         console.log(blogpost);
 
-        //Serialize reversed blogpost to send
+        //Serialize blogpost to send
         var jsonapi = BlogPostSerializer.serialize(blogpost);
 
 

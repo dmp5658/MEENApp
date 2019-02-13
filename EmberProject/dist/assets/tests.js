@@ -211,6 +211,30 @@ define("ember-project/tests/integration/components/view-post/component-test", ["
     });
   });
 });
+define("ember-project/tests/integration/components/view-single-post/component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | view-single-post', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "yxjpAzxb",
+        "block": "{\"symbols\":[],\"statements\":[[1,[21,\"view-single-post\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "dGc0NLdU",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"view-single-post\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define("ember-project/tests/lint/app.lint-test", [], function () {
   "use strict";
 
@@ -258,6 +282,10 @@ define("ember-project/tests/lint/app.lint-test", [], function () {
   QUnit.test('components/view-post/component.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/view-post/component.js should pass ESLint\n\n');
+  });
+  QUnit.test('components/view-single-post/component.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/view-single-post/component.js should pass ESLint\n\n');
   });
   QUnit.test('models/blogpost.js', function (assert) {
     assert.expect(1);
@@ -350,7 +378,11 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/view-post/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\nember-project/components/view-post/template.hbs\n  2:15  error  you must use double quotes in templates  quotes\n');
+    assert.ok(false, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\nember-project/components/view-post/template.hbs\n  1:15  error  you must use double quotes in templates  quotes\n');
+  });
+  QUnit.test('ember-project/components/view-single-post/template.hbs', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'ember-project/components/view-single-post/template.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('ember-project/templates/application.hbs', function (assert) {
     assert.expect(1);
@@ -412,6 +444,10 @@ define("ember-project/tests/lint/tests.lint-test", [], function () {
   QUnit.test('integration/components/view-post/component-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/view-post/component-test.js should pass ESLint\n\n');
+  });
+  QUnit.test('integration/components/view-single-post/component-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/view-single-post/component-test.js should pass ESLint\n\n');
   });
   QUnit.test('test-helper.js', function (assert) {
     assert.expect(1);

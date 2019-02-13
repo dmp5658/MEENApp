@@ -416,10 +416,40 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "lN3ViuE8",
-    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[4,\"link-to\",[\"post\",[23,[\"blogpost\",\"id\"]]],null,{\"statements\":[[1,[23,[\"blogpost\",\"title\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "BNPlc1/3",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[4,\"link-to\",[\"post\",[23,[\"blogpost\",\"id\"]]],null,{\"statements\":[[1,[23,[\"blogpost\",\"title\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/view-post/template.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("ember-project/components/view-single-post/component", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Component.extend({});
+
+  _exports.default = _default;
+});
+;define("ember-project/components/view-single-post/template", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "AI9rlznW",
+    "block": "{\"symbols\":[],\"statements\":[[0,\"    \"],[7,\"h1\"],[9],[1,[23,[\"model\",\"title\"]],false],[10],[0,\"\\n    \"],[7,\"p\"],[9],[1,[23,[\"model\",\"body\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"model\",\"datePosted\"]],false],[10],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"model\",\"user\"]],false],[10],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "meta": {
+      "moduleName": "ember-project/components/view-single-post/template.hbs"
     }
   });
 
@@ -825,29 +855,12 @@
   });
   _exports.default = void 0;
   let blogposts = [{
-    "_id": "5c588e1bc23c5e5620c59b4e",
-    "title": "Helloooo",
-    "body": "teeest",
-    "datePosted": "2019-02-04T19:10:19.422Z",
-    "__v": 0
-  }, {
-    "_id": "5c589c1f773a76461cf1e4be",
-    "title": "titletest",
-    "body": "bodytest",
-    "datePosted": "2019-02-04T20:10:07.790Z",
-    "__v": 0
-  }, {
-    "_id": "5c58becee53d4925a88c20fb",
-    "title": "titletest2",
-    "body": "titletest2",
-    "datePosted": "2019-02-04T22:38:06.660Z",
-    "__v": 0
-  }, {
-    "_id": "5c58cf647d0a52086c5aac5d",
-    "body": "rere",
-    "title": "rerere",
-    "datePosted": "2019-02-04T23:48:52.477Z",
-    "__v": 0
+    "_id": "5c644147cbeaeb03dc6283fd",
+    "title": 'test6',
+    "body": 'test6',
+    "user": 'test3@test.com',
+    "datePosted": "2019-02-13T16:09:43.847Z",
+    "__v": "0"
   }];
 
   var _default = Ember.Route.extend({
@@ -903,7 +916,11 @@
 
   var _default = Ember.Route.extend({
     model(params) {
-      return this.store.findRecord('blogpost', params.blogpost_id);
+      return this.store.findRecord('blogpost', params.blogpost_id).then(result => {
+        console.log('RESULT');
+        console.log(result);
+        return result;
+      });
     }
 
   });
@@ -1172,8 +1189,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "cgyHR40j",
-    "block": "{\"symbols\":[\"blogpost\"],\"statements\":[[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[4,\"if\",[[22,1,[\"id\"]]],null,{\"statements\":[[0,\"    \"],[7,\"h1\"],[9],[1,[22,1,[\"title\"]],false],[10],[0,\"\\n    \"],[7,\"p\"],[9],[1,[22,1,[\"body\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[22,1,[\"datePosted\"]],false],[10],[0,\"\\n      \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[22,1,[\"user\"]],false],[10],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"parameters\":[]},null]],\"parameters\":[1]},{\"statements\":[[0,\"  Error!\\n\"]],\"parameters\":[]}]],\"hasEval\":false}",
+    "id": "9Q66aGhP",
+    "block": "{\"symbols\":[],\"statements\":[[1,[27,\"view-single-post\",null,[[\"model\"],[[23,[\"model\"]]]]],false]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/templates/post.hbs"
     }
@@ -1222,7 +1239,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+9a8d8b65"});
+            require("ember-project/app")["default"].create({"name":"ember-project","version":"0.0.0+6f2c9067"});
           }
         
 //# sourceMappingURL=ember-project.map
