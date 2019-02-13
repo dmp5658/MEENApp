@@ -378,7 +378,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   });
   QUnit.test('ember-project/components/view-post/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\nember-project/components/view-post/template.hbs\n  1:15  error  you must use double quotes in templates  quotes\n');
+    assert.ok(false, 'ember-project/components/view-post/template.hbs should pass TemplateLint.\n\nember-project/components/view-post/template.hbs\n  2:3  error  elements cannot have inline styles  no-inline-styles\n  1:15  error  you must use double quotes in templates  quotes\n');
   });
   QUnit.test('ember-project/components/view-single-post/template.hbs', function (assert) {
     assert.expect(1);

@@ -1,5 +1,5 @@
 <h1>{{#link-to 'post' blogpost.id}}{{blogpost.title}}{{/link-to}}</h1>
-<p>{{blogpost.body}}</p>
+<p style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">{{blogpost.body}}</p>
 <div>
   <span class="badge">Posted on {{blogpost.datePosted}}</span>
   <span class="badge">Posted by {{blogpost.user}}</span>

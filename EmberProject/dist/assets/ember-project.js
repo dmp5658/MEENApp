@@ -416,8 +416,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "BNPlc1/3",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[4,\"link-to\",[\"post\",[23,[\"blogpost\",\"id\"]]],null,{\"statements\":[[1,[23,[\"blogpost\",\"title\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "RsM3x3Vh",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[4,\"link-to\",[\"post\",[23,[\"blogpost\",\"id\"]]],null,{\"statements\":[[1,[23,[\"blogpost\",\"title\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n\"],[7,\"p\"],[11,\"style\",\"white-space: nowrap; overflow: hidden; text-overflow:ellipsis;\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/view-post/template.hbs"
     }
