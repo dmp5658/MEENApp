@@ -330,7 +330,8 @@
   _exports.default = void 0;
 
   var _default = Ember.Component.extend({
-    session: Ember.inject.service()
+    session: Ember.inject.service(),
+    currentuser: Ember.inject.service()
   });
 
   _exports.default = _default;
@@ -344,8 +345,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "ZnMVXeyg",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-inverse\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],null,{\"statements\":[[0,\" \"],[7,\"div\"],[11,\"class\",\"navbar-brand\"],[9],[0,\"BlogPostSite\"],[10]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav navbar-right\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"li\"],[9],[4,\"link-to\",[\"logout\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-log-out\"],[9],[10],[0,\" Logout\"]],\"parameters\":[]},null],[10],[0,\"\\n\"]],\"parameters\":[]},{\"statements\":[[0,\"        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-user\"],[9],[10],[0,\" Sign Up\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-log-in\"],[9],[10],[0,\" Login\"]],\"parameters\":[]},null],[10],[0,\"\\n\"]],\"parameters\":[]}],[0,\"    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"]],\"hasEval\":false}",
+    "id": "oWe8J6vJ",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-inverse\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"container-fluid\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"navbar-header\"],[9],[0,\"\\n      \"],[4,\"link-to\",[\"index\"],null,{\"statements\":[[0,\" \"],[7,\"div\"],[11,\"class\",\"navbar-brand\"],[9],[0,\"BlogPostSite\"],[10]],\"parameters\":[]},null],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"ul\"],[11,\"class\",\"nav navbar-nav navbar-right\"],[9],[0,\"\\n\"],[4,\"if\",[[23,[\"session\",\"isAuthenticated\"]]],null,{\"statements\":[[0,\"        \"],[7,\"li\"],[9],[4,\"link-to\",[\"index\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-user\"],[9],[10],[1,[23,[\"currentuser\",\"email\"]],false]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"logout\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-log-out\"],[9],[10],[0,\" Logout\"]],\"parameters\":[]},null],[10],[0,\"\\n\"]],\"parameters\":[]},{\"statements\":[[0,\"        \"],[7,\"li\"],[9],[4,\"link-to\",[\"signup\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-user\"],[9],[10],[0,\" Sign Up\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[7,\"li\"],[9],[4,\"link-to\",[\"login\"],null,{\"statements\":[[7,\"span\"],[11,\"class\",\"glyphicon glyphicon-log-in\"],[9],[10],[0,\" Login\"]],\"parameters\":[]},null],[10],[0,\"\\n\"]],\"parameters\":[]}],[0,\"    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/nav-bar/template.hbs"
     }

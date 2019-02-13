@@ -5,6 +5,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       {{#if session.isAuthenticated}}
+        <li>{{#link-to 'index'}}<span class="glyphicon glyphicon-user"></span>{{currentuser.email}}{{/link-to}}</li>
         <li>{{#link-to 'logout'}}<span class="glyphicon glyphicon-log-out"></span> Logout{{/link-to}}</li>
       {{else}}
         <li>{{#link-to 'signup'}}<span class="glyphicon glyphicon-user"></span> Sign Up{{/link-to}}</li>
