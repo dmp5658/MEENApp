@@ -135,22 +135,16 @@
   var _default = Ember.Component.extend({
     blogpost: null,
     currentuser: Ember.inject.service(),
-    router: Ember.inject.service('-routing'),
+    router: Ember.inject.service(),
     actions: {
       save: function (blogpost) {
-        console.log(blogpost.title);
-        console.log(blogpost.body);
-        const curruser = this.get('currentuser');
-        console.log(curruser.getCurrUser()); //  blogpost.user = curruser.getCurrUser();
-
-        console.log('BLOGPOST USER');
-        console.log(blogpost.user);
         blogpost.save().then(value => {
           Ember.Logger.info(value);
         }).catch(err => {
           Ember.Logger.info('failure to save');
           console.log(err);
         });
+        this.get('router').transitionTo('index');
       }
     }
   });
@@ -166,8 +160,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "nxcnBJms",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"name\",\"value\",\"class\",\"placeholder\"],[\"title\",[23,[\"blogpost\",\"title\"]],\"form-control\",\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"name\",\"value\",\"class\",\"placeholder\",\"rows\",\"cols\"],[\"body\",[23,[\"blogpost\",\"body\"]],\"form-control\",\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"value\",\"Save\"],[11,\"type\",\"submit\"],[9],[0,\"Publish\"],[10],[0,\"\\n  \"],[10],[0,\"\\n    \"],[7,\"p\"],[11,\"value\",\"blogpost.user\"],[9],[10],[0,\"\\n\"],[3,\"action\",[[22,0,[]],\"save\",[23,[\"blogpost\"]]],[[\"on\"],[\"submit\"]]],[10]],\"hasEval\":false}",
+    "id": "c/utmHwE",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h3\"],[9],[0,\"Create a New Post\"],[10],[0,\"\\n\\n\"],[7,\"form\"],[9],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"input\",null,[[\"name\",\"value\",\"class\",\"placeholder\"],[\"title\",[23,[\"blogpost\",\"title\"]],\"form-control\",\"Title\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[1,[27,\"textarea\",null,[[\"name\",\"value\",\"class\",\"placeholder\",\"rows\",\"cols\"],[\"body\",[23,[\"blogpost\",\"body\"]],\"form-control\",\"Body\",\"10\",\"140\"]]],false],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"p\"],[9],[0,\"\\n    \"],[7,\"button\"],[11,\"class\",\"btn btn-primary btn-block\"],[11,\"value\",\"Save\"],[11,\"type\",\"submit\"],[9],[0,\"Publish\"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[3,\"action\",[[22,0,[]],\"save\",[23,[\"blogpost\"]]],[[\"on\"],[\"submit\"]]],[10]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/create-new-post/template.hbs"
     }
@@ -419,8 +413,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "ZFtQzsS+",
-    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[1,[23,[\"blogpost\",\"title\"]],false],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "knzmrSjc",
+    "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[7,\"h1\"],[9],[1,[23,[\"blogpost\",\"title\"]],false],[10],[0,\"\\n\"],[7,\"p\"],[9],[1,[23,[\"blogpost\",\"body\"]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted on \"],[1,[23,[\"blogpost\",\"datePosted\"]],false],[10],[0,\"\\n  \"],[7,\"span\"],[11,\"class\",\"badge\"],[9],[0,\"Posted by \"],[1,[23,[\"blogpost\",\"user\"]],false],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"hr\"],[9],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "ember-project/components/view-post/template.hbs"
     }

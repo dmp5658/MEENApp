@@ -322,7 +322,7 @@ define("ember-project/tests/lint/templates.template.lint-test", [], function () 
   QUnit.module('TemplateLint');
   QUnit.test('ember-project/components/create-new-post/template.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'ember-project/components/create-new-post/template.hbs should pass TemplateLint.\n\nember-project/components/create-new-post/template.hbs\n  13:4  error  Incorrect indentation for `<p>` beginning at L13:C4. Expected `<p>` to be at an indentation of 2 but was found at 4.  block-indentation\n  13:13  error  Attribute value should be either quoted or wrapped in mustaches  no-quoteless-attributes\n');
+    assert.ok(true, 'ember-project/components/create-new-post/template.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('ember-project/components/login-form/template.hbs', function (assert) {
     assert.expect(1);
