@@ -6,7 +6,9 @@
       {{/if}}
     <br><br>
     {{#each model as |blogpost|}}
-      {{view-post blogpost=blogpost}}
+      {{#if blogpost.id}}
+        {{view-post blogpost=blogpost}}
+      {{/if}}
     {{else}}
       No posts!
     {{/each}}

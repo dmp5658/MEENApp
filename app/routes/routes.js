@@ -46,8 +46,18 @@ router.get('/blogposts',(req, res) => {
             res.send(err);
         }
         console.log(blogpost);
-        //res.json(blogpost);
-        var jsonapi = BlogPostSerializer.serialize(blogpost);
+
+        //REVERSES BLOGPOST ENTRIES
+        var ReverseArray = [];
+        var length = blogpost.length;
+        for(var i = length-1;i>=0;i--){
+            ReverseArray.push(blogpost[i]);
+        }
+
+        //Serialize reversed blogpost to send
+        var jsonapi = BlogPostSerializer.serialize(ReverseArray);
+
+
         res.send(jsonapi);
     })
 });
@@ -67,7 +77,7 @@ router.post('/blogposts',  (req, res) => {
             //res.json(err);
         }
         console.log(blogpost);
-        res.json(blogpost);
+        res.json('Success');
     });
 });
 
