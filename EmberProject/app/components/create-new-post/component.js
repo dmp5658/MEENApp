@@ -20,7 +20,6 @@ export default Component.extend({
           .catch(
             (err) => {
               Ember.Logger.info('failure to save');
-              console.log(err);
             }
           );
       this.get('router').transitionTo('index');

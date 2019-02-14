@@ -5,7 +5,6 @@ export default Component.extend({
   currentuser: service(),
   actions: {
     login() {
-      console.log('login');
       this.set('loginError', false);
 
     const { email, password } = this.getProperties( 'email', 'password');
@@ -19,15 +18,10 @@ export default Component.extend({
     if(!this.get('loginError')){
       const curruser = this.get('currentuser');
       curruser.setCurrUser(email);
-      console.log('TEEEEST');
-      console.log(curruser.getCurrUser());
     }
-    console.log("IN LOGIN SESS");
-    console.log(this.get('session.isAuthenticated'));
 
     },
     signout(){
-      console.log('signout');
       const curruser = this.get('currentuser');
       curruser.clearCurrUser();
 

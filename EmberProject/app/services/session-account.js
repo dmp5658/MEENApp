@@ -8,7 +8,6 @@ export default Service.extend({
 
   loadCurrentUser() {
     return new RSVP.Promise((resolve, reject) => {
-      console.log(this.get('session.data.authenticated.token'));
       const accountId = this.get('session.data.authenticated.account_id');
       if (!isEmpty(accountId)) {
         this.get('store').find('user', accountId).then((user) => {

@@ -33,7 +33,6 @@ export default Base.extend({
       dataType: 'json'
 
     };
-    console.log(requestOptions);
 
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then((response) => {
