@@ -10,47 +10,6 @@ var server = supertest.agent("http://localhost:3000");
 
 describe("Unit test",function(){
 
-
-    //Blogposts test
-    it("Should return all blogposts",function(done){
-
-        server
-            .get("/blogposts")
-            .expect("Content-type",/json/)
-            .expect(200) // THis is HTTP response
-            .end(function(err,res){
-                // HTTP status should be 200
-                res.status.should.equal(200);
-                // Body result should be an array
-                done();
-            });
-    });
-
-    it("Should post a blogpost",function(done){
-
-        server
-            .post("/blogposts")
-            .send({title: "ABCDEFG" ,body: "ABCDEFG"})
-            .expect("Content-type",/json/)
-            .expect(200) // THis is HTTP response
-            .end(function(err,res){
-                res.status.should.equal(200);
-                done();
-            });
-    });
-
-    it("Should return a single blogpost with id 5c646ab926c38d4fb83b0972",function(done){
-
-        server
-            .get("/blogposts/5c6381abf668994cfc8329e3")
-            .expect("Content-type",/json/)
-            .expect(200) // THis is HTTP response
-            .end(function(err,res){
-                res.status.should.equal(200);
-                done();
-            });
-    });
-
     //User tests
     it("Should sign up a user",function(done){
 
@@ -107,6 +66,49 @@ describe("Unit test",function(){
                 done();
             });
     });
+
+
+
+    //Blogposts test
+    it("Should return a single blogpost with id 5c646ab926c38d4fb83b0972",function(done){
+
+        server
+            .get("/blogposts/5c6381abf668994cfc8329e3")
+            .expect("Content-type",/json/)
+            .expect(200) // THis is HTTP response
+            .end(function(err,res){
+                res.status.should.equal(200);
+                done();
+            });
+    });
+
+    it("Should return all blogposts",function(done){
+
+        server
+            .get("/blogposts")
+            .expect("Content-type",/json/)
+            .expect(200) // THis is HTTP response
+            .end(function(err,res){
+                // HTTP status should be 200
+                res.status.should.equal(200);
+                // Body result should be an array
+                done();
+            });
+    });
+
+    it("Should post a blogpost",function(done){
+
+        server
+            .post("/blogposts")
+            .send({title: "ABCDEFG" ,body: "ABCDEFG"})
+            .expect("Content-type",/json/)
+            .expect(200) // THis is HTTP response
+            .end(function(err,res){
+                res.status.should.equal(200);
+                done();
+            });
+    });
+
 
 
 });
